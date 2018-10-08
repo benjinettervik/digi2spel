@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletSpeed: 10
   lifetime: 3
+  damage: 1
 --- !u!114 &114869988419602474
 MonoBehaviour:
   m_ObjectHideFlags: 1
