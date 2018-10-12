@@ -5,21 +5,22 @@ using UnityEngine;
 public class ChangeRoom : MonoBehaviour
 {
     //Denna ska endas assignas om det är ett rum spelaren spawnar i
-    public GameObject startingRoom;
+    public bool isStartingRoom;
 
     public GameObject roomToDisable;
     public GameObject roomToEnable;
 
+    public bool effect;
+
     private void Start()
     {
-        if (roomToEnable != startingRoom)
+        if (!isStartingRoom)
         {
-            ChangeRoomState(roomToEnable, false);
-
+        //    ChangeRoomState(roomToEnable, false);
         }
     }
 
-    bool hasEntered;
+    public bool hasEntered;
     private void OnTriggerEnter(Collider other)
     {
         if (!hasEntered)
@@ -28,8 +29,12 @@ public class ChangeRoom : MonoBehaviour
 
             if (other.name == "Player")
             {
-                ChangeRoomState(roomToEnable, true);
-                ChangeRoomState(roomToDisable, false);
+                //ChangeRoomState(roomToEnable, true);
+                if (effect)
+                    SetRoomCoversState(roomToEnable, true);
+                //ChangeRoomState(roomToDisable, false);
+                if (effect)
+                    SetRoomCoversState(roomToDisable, false);
             }
         }
     }
@@ -39,7 +44,6 @@ public class ChangeRoom : MonoBehaviour
         if (other.name == "Player")
         {
             hasEntered = false;
-
         }
     }
 
@@ -50,6 +54,39 @@ public class ChangeRoom : MonoBehaviour
             if (objectInRoom.GetComponent<MeshRenderer>() != null)
             {
                 objectInRoom.GetComponent<MeshRenderer>().enabled = state;
+            }
+        }
+    }
+
+    void SetRoomCoversState(GameObject room, bool state)
+    {
+        GameObject covers;
+        covers = room.transform.Find("Covers").gameObject;
+
+        foreach (Transform cover in covers.transform)
+        {
+            StartCoroutine(ChangeColor(cover.gameObject, state));
+        }
+    }
+
+    IEnumerator ChangeColor(GameObject objectToChange, bool state)
+    {
+        Material objectColor = objectToChange.GetComponent<EditMaterial>().objectMaterial;
+
+        if (state)
+        {
+            while (objectColor.color.a > 0)
+            {
+                objectColor.color -= new Color(0, 0, 0, 2f * Time.deltaTime);
+                yield return null;
+            }
+        }
+        else
+        {
+            while (objectColor.color.a < 1)
+            {
+                objectColor.color += new Color(0, 0, 0, 2f * Time.deltaTime);
+                yield return null;
             }
         }
     }

@@ -6,7 +6,6 @@ public class MovementPlaceholder : MonoBehaviour
 {
     private void Update()
     {
-
-        transform.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * Time.deltaTime * 5;
+        transform.position += (Input.GetAxisRaw("Horizontal") * transform.forward + Input.GetAxisRaw("Vertical") * transform.right) * Time.deltaTime * 5;
     }
 }
