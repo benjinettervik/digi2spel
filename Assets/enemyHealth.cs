@@ -14,10 +14,6 @@ public class enemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
     }
-    public void Damage(int dmg)
-    {
-        currentHealth -= dmg;
-    }
 
 
     // Update is called once per frame
@@ -32,11 +28,24 @@ public class enemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag==("Player"))
         {
             player.Damage(damage);
         }
+    }
+
+
+
+
+    public void Damage(int dmg)
+    {
+        
+
+        currentHealth -= dmg;
+
     }
 }
