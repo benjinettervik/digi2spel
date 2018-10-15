@@ -16,7 +16,16 @@ public class ChangeRoom : MonoBehaviour
     {
         if (!isStartingRoom)
         {
-        //    ChangeRoomState(roomToEnable, false);
+            print("disabling " + roomToEnable);
+            SetRoomCoversState(roomToEnable, false);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SetRoomCoversState(roomToEnable, false);
         }
     }
 
@@ -47,17 +56,6 @@ public class ChangeRoom : MonoBehaviour
         }
     }
 
-    void ChangeRoomState(GameObject room, bool state)
-    {
-        foreach (Transform objectInRoom in room.transform)
-        {
-            if (objectInRoom.GetComponent<MeshRenderer>() != null)
-            {
-                objectInRoom.GetComponent<MeshRenderer>().enabled = state;
-            }
-        }
-    }
-
     void SetRoomCoversState(GameObject room, bool state)
     {
         GameObject covers;
@@ -85,6 +83,7 @@ public class ChangeRoom : MonoBehaviour
         {
             while (objectColor.color.a < 1)
             {
+
                 objectColor.color += new Color(0, 0, 0, 2f * Time.deltaTime);
                 yield return null;
             }
