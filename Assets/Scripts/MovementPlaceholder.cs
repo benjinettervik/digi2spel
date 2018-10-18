@@ -15,6 +15,6 @@ public class MovementPlaceholder : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GetComponent<Rigidbody>().velocity = movement;
+        GetComponent<Rigidbody>().MovePosition(transform.position + movement * Time.deltaTime * speed);
     }
 }
