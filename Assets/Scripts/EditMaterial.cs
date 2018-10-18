@@ -6,7 +6,7 @@ public class EditMaterial : MonoBehaviour
 {
     public Material objectMaterial;
 
-    private void Start()
+    private void Awake()
     {
        CreateMaterial();
     }
