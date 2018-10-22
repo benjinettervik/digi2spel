@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class movement : MonoBehaviour
 {
     [SerializeField]
     float speed;
     Rigidbody rb;
-    Vector3 movement;
+    Vector3 playerMovement;
 
 
     private void Start()
@@ -17,12 +17,12 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        movement = new Vector3(Input.GetAxisRaw("Vertical"), 0, -Input.GetAxisRaw("Horizontal"));
+        playerMovement = new Vector3(Input.GetAxisRaw("Vertical"), 0, -Input.GetAxisRaw("Horizontal"));
     }
 
     private void FixedUpdate()
     {
         //rb.MovePosition(rb.transform.position + movement * Time.deltaTime * speed);
-        rb.velocity = movement * Time.deltaTime * speed;
+        rb.velocity = playerMovement * Time.deltaTime * speed;
     }
 }
