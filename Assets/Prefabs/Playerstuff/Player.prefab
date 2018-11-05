@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 65512355296521182}
   - component: {fileID: 114843691496454434}
   - component: {fileID: 114885477319031620}
+  - component: {fileID: 114688513752971392}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043244580711302}
   m_LocalRotation: {x: -0, y: 0.6994213, z: -0, w: 0.7147097}
-  m_LocalPosition: {x: 0.022, y: 0.55169606, z: -11.259}
+  m_LocalPosition: {x: -3.763578, y: 0.8840899, z: -1.3819106}
   m_LocalScale: {x: 36.073307, y: 36.07329, z: 36.073307}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,6 +115,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020938909, y: 0.042487144, z: 0.016182544}
   m_Center: {x: 0.00019005973, y: -0.003264579, z: 0.00034411874}
+--- !u!114 &114688513752971392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043244580711302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 0}
 --- !u!114 &114843691496454434
 MonoBehaviour:
   m_ObjectHideFlags: 1
