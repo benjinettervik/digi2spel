@@ -37,8 +37,6 @@ public class movement : MonoBehaviour
         xMovement = Mathf.Clamp(xMovement, -1, 1);
         yMovement = Mathf.Clamp(yMovement, -1, 1);
 
-        print(xMovement + " " + yMovement);
-
         playerMovement = new Vector3(yMovement, 0, -xMovement);
     }
 
