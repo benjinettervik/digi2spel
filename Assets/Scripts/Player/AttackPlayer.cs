@@ -10,6 +10,8 @@ public class AttackPlayer : MonoBehaviour
 
     private playerHealth playerHp;
     private enemyHealth enemyHp;
+    public int Range = 20;
+
 
     void Awake()
     {
