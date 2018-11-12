@@ -403,6 +403,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114688513752971392, guid: dadde5ca34906424da637da650b34585,
+        type: 2}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 594984814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dadde5ca34906424da637da650b34585, type: 2}
   m_IsPrefabAsset: 0
@@ -425,17 +430,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &594984815
-MonoBehaviour:
+--- !u!95 &594984815
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594984814}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d785881a4e619c4eac718fce3545a15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &594984816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -496,12 +508,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594984814}
-  m_LocalRotation: {x: 0.6357781, y: 0.19090311, z: -0.16646102, w: 0.7291317}
-  m_LocalPosition: {x: -3.158, y: 1.155, z: -1.863}
-  m_LocalScale: {x: 0.763288, y: 0.13499269, z: 0.031572293}
+  m_LocalRotation: {x: 0.57082313, y: -0.3735299, z: 0.32570544, w: 0.6546392}
+  m_LocalPosition: {x: 0.013696263, y: 0.0075099906, z: 0.016495172}
+  m_LocalScale: {x: 0.021159364, y: 0.0037421784, z: 0.00087522663}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 848261419}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 82.175, y: 29.344002, z: 0}
 --- !u!1 &690020401
 GameObject:
@@ -569,6 +581,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &848261419 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4109340692673548, guid: dadde5ca34906424da637da650b34585,
+    type: 2}
+  m_PrefabInternal: {fileID: 470852718}
 --- !u!1 &1049667197
 GameObject:
   m_ObjectHideFlags: 0
