@@ -26,16 +26,17 @@ public class AttackPlayer : MonoBehaviour
     void Update()
     {
 
-        // if (Vector3.Distance(player.position, this.transform.position) < 20)
-        //(enemyHp.currentHealth > 0 && playerHp.currentHealth > 0)
-        // If the enemy and the player have health left...
+        
         if (player != null)
         {
             if (Vector3.Distance(player.position, this.transform.position) < 20)
             {
                 // ... set the destination of the nav mesh agent to the player.
                 nav.SetDestination(player.position);
-
+                if (Vector3.Distance(player.position, this.transform.position) < 10)
+                {
+                    nav.SetDestination(gameObject.transform.position);
+                }
             }
             // Otherwise...
             else

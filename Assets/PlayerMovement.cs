@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     public float speed = 6f;
 
-    
+
     Vector3 movement;
     Rigidbody playerRigidbody;
     int floorMask;
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 
         playerRigidbody.velocity = movement * Time.deltaTime * 500;
 
-        
+
     }
 
     void Move(float h, float v)
@@ -56,5 +57,4 @@ public class PlayerMovement : MonoBehaviour {
 
         }
     }
-
 }
