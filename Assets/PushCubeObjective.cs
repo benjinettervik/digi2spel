@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PushCubeObjective : Objective
 {
-    public GameObject roomController;
+    public GameObject designatedPosition;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.tag == "Player")
+        if (other.name == designatedPosition.name)
         {
             isCompleted = true;
             print("hit");
             roomController.GetComponent<RoomController>().CheckObjectiveCompleted();
+            ActivateObjects();
         }
     }
 }

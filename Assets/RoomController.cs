@@ -7,25 +7,22 @@ public class RoomController : MonoBehaviour
     public List<GameObject> objectives;
     public GameObject objectiveToToggle;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            objectives[0].GetComponent<Objective>().isCompleted = true;
-        }
-    }
-
+    int completedObjectives;
     public void CheckObjectiveCompleted()
     {
-        foreach(GameObject objective in objectives)
+        completedObjectives = 0;
+        foreach (GameObject objective in objectives)
         {
-            if (!objective.GetComponent<Objective>().isCompleted)
+            if (objective.GetComponent<Objective>().isCompleted)
             {
-                return;
+                completedObjectives++;
             }
 
-            print("doing shit");
-            objectiveToToggle.GetComponent<Objective>().PerformAction();
+            if (completedObjectives == objectives.Count)
+            {
+                print("doing shit");
+                objectiveToToggle.GetComponent<Objective>().PerformAction();
+            }
         }
     }
 }
