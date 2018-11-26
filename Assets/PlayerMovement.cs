@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     public float speed = 6f;
+
 
     Vector3 movement;
     Rigidbody playerRigidbody;
@@ -25,6 +28,8 @@ public class PlayerMovement : MonoBehaviour {
         movement = (Input.GetAxisRaw("Horizontal") * -transform.forward + Input.GetAxisRaw("Vertical") * transform.right);
 
         playerRigidbody.velocity = movement * Time.deltaTime * 500;
+
+
     }
 
     void Move(float h, float v)
