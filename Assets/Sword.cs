@@ -22,7 +22,7 @@ public class Sword : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             animationController.Play("Swordplaceholder");
-        } 
+        }
     }
 
 }
