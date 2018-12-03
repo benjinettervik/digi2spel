@@ -31,16 +31,13 @@ public class Button : Objective
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-
+    {   
         if (isEnabled)
         {
-
             if (other.tag == "Sword")
             {
                 if (other.transform.parent.GetComponent<Sword>().isActive)
                 {
-                    print("compketeing");
                     isCompleted = true;
                     roomController.GetComponent<RoomController>().CheckObjectiveCompleted();
                 }
