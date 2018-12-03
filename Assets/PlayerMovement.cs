@@ -26,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
         movement = (Input.GetAxisRaw("Horizontal") * -transform.forward + Input.GetAxisRaw("Vertical") * transform.right);
 
         playerRigidbody.velocity = movement * Time.deltaTime * 500;
-
-
     }
 
     void Move(float h, float v)
