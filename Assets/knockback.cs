@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class knockback : MonoBehaviour {
+public class Knockback : MonoBehaviour {
 
     public NavMeshAgent navAgent;
     bool knockBack;
@@ -25,7 +25,7 @@ public class knockback : MonoBehaviour {
     IEnumerator KnockBack()
     {
         knockBack = true;
-        navAgent.speed = 15;
+        navAgent.speed = 10;
         navAgent.angularSpeed = 0;//Keeps the enemy facing forwad rther than spinning
         navAgent.acceleration = 20;
 
@@ -33,9 +33,9 @@ public class knockback : MonoBehaviour {
 
         //Reset to default values
         knockBack = false;
-        navAgent.speed = 10;
-        navAgent.angularSpeed = 120;
-        navAgent.acceleration = 30;
+        navAgent.speed = 4;
+        navAgent.angularSpeed = 180;
+        navAgent.acceleration = 10;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -45,7 +45,7 @@ public class knockback : MonoBehaviour {
 
         direction = delta; //Always knocks ememy in the direction the main character is facing
         print(collision.gameObject.tag);
-
+        
         if (collision.gameObject.tag == ("Trigger"))
         {
             StartCoroutine(KnockBack());
