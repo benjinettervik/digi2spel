@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Knockback : MonoBehaviour {
+public class Knockback : MonoBehaviour
+{
 
     public NavMeshAgent navAgent;
     bool knockBack;
@@ -45,7 +46,7 @@ public class Knockback : MonoBehaviour {
 
         direction = delta; //Always knocks ememy in the direction the main character is facing
         print(collision.gameObject.tag);
-        
+
         if (collision.gameObject.tag == ("Trigger"))
         {
             StartCoroutine(KnockBack());
