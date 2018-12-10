@@ -4,19 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour {
-    
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Use this for initialization
+    void Start() {
+
+    }
+
+    // Update is called once per frame
+    void Update() {
+
+    }
     public void loadscene(string scenename)
     {
         SceneManager.LoadScene(scenename);
     }
+
+    public void quitGame() {
+        Application.Quit();
+    }
+
 }
