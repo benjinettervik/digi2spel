@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Wall
-  - Enemy
-  - Trigger
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -20,7 +19,7 @@ TagManager:
   - Player
   - BulletTrigger
   - Bullet
-  - Enemy
+  - Floor
   - 
   - 
   - 
