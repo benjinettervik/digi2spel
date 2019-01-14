@@ -33,10 +33,7 @@ public class AttackPlayer : MonoBehaviour
             {
                 // ... set the destination of the nav mesh agent to the player.
                 nav.SetDestination(player.position);
-                if (Vector3.Distance(player.position, this.transform.position) < 10)
-                {
-                    nav.SetDestination(gameObject.transform.position);
-                }
+                
             }
             // Otherwise...
             else
