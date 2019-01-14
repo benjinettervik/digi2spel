@@ -12,6 +12,11 @@ public class Button : Objective
         light = transform.Find("Point Light").GetComponent<Light>();
     }
 
+    private void Update()
+    {
+        print(isEnabled);
+    }
+
     public override void ActionToBePerformed()
     {
         print("starting light");
@@ -31,11 +36,12 @@ public class Button : Objective
     }
 
     private void OnTriggerEnter(Collider other)
-    {   
+    {
         if (isEnabled)
         {
             if (other.tag == "Sword")
             {
+                print("=????");
                 if (other.transform.parent.GetComponent<Sword>().isActive)
                 {
                     isCompleted = true;
