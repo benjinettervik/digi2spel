@@ -2,15 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PutWeightOnPlate : MonoBehaviour {
+public class PutWeightOnPlate : Objective
+{
+    public string[] possibleTags;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void CheckCollision(string collidingTag, bool enable)
+    {
+        foreach (string tag in possibleTags)
+        {
+            if (tag == collidingTag)
+            {
+                if (enable)
+                {
+                    print("enabkkng");
+                    isCompleted = true;
+                    ActivateObjects();
+                }
+                else
+                {
+                    print("disabling");
+                    isCompleted = false;
+                    DeActivateObjects();
+                }
+
+                roomController.GetComponent<RoomController>().CheckObjectiveCompleted();
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CheckCollision(other.tag, true);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        CheckCollision(other.tag, false);
+    }
+
+    public override void ActionToBePerformed(bool enable)
+    {
+
+    }
 }

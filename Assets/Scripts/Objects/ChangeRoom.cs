@@ -33,7 +33,6 @@ public class ChangeRoom : MonoBehaviour
     {
         if (!hasEntered)
         {
-
             if (other.name == "Player")
             {
                 hasEntered = true;

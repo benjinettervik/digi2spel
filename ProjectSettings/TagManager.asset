@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Sword
   - Enemy
+  - Barrel
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,6 @@ public class Sword : MonoBehaviour
     private void Update()
     {
         Attack();
-        print(isActive);
     }
 
     void Attack()

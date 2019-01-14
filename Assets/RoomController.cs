@@ -13,16 +13,13 @@ public class RoomController : MonoBehaviour
         completedObjectives = 0;
         foreach (GameObject objective in objectives)
         {
-            if (objective.GetComponent<Objective>().isCompleted)
+            if (!objective.GetComponent<Objective>().isCompleted)
             {
-                completedObjectives++;
-            }
-
-            if (completedObjectives == objectives.Count)
-            {
-                print("doing shit");
-                objectiveToToggle.GetComponent<Objective>().PerformAction();
+                return;
             }
         }
+
+        print("doing shit");
+        objectiveToToggle.GetComponent<Objective>().PerformAction();
     }
 }

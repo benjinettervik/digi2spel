@@ -157,4 +157,5 @@ MonoBehaviour:
   roomController: {fileID: 0}
   objectivesToActivate:
   - {fileID: 0}
+  objectivesToDeActivate: []
   designatedPosition: {fileID: 0}

@@ -17,21 +17,64 @@ public class Button : Objective
         print(isEnabled);
     }
 
-    public override void ActionToBePerformed()
+    public override void ActionToBePerformed(bool enable)
     {
-        print("starting light");
-        StartCoroutine(ToggleLight(3, true));
+        isEnabled = enable;
+
+        if (enable)
+        {
+            print("starting light");
+            StopCoroutine(ToggleLight(3, true));
+            StartCoroutine(ToggleLight(3, true));
+        }
+        else if (!enable)
+        {
+            print("disabling light");
+            StopCoroutine(ToggleLight(0, false));
+            StartCoroutine(ToggleLight(0, false));
+        }
+
     }
 
     public IEnumerator ToggleLight(float intensity, bool lightState)
     {
-        while (light.intensity <= intensity)
+        if (lightState)
         {
-            light.intensity += Time.deltaTime * 10;
-            yield return false;
-        }
+            while (light.intensity <= intensity)
+            {
+                print("enabling light literally");
+                light.intensity += Time.deltaTime * 10;
 
-        isEnabled = lightState;
+                if (!isEnabled)
+                {
+                    StartCoroutine(ToggleLight(0, false));
+                    break;
+                }
+
+                yield return false;
+            }
+        }
+        else if (!lightState)
+        {
+            while (light.intensity >= intensity)
+            {
+                print("disabling light literally");
+                light.intensity -= Time.deltaTime * 10;
+
+                if (isEnabled)
+                {
+                    StartCoroutine(ToggleLight(3, true));
+                    break;
+                }
+
+                if (light.intensity <= 0)
+                {
+                    break;
+                }
+
+                yield return false;
+            }
+        }
         yield return false;
     }
 
