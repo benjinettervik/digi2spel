@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Wall
+  - Sword
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - BulletTrigger
   - Bullet
   - Floor
-  - 
+  - PostProcessing
   - 
   - 
   - 

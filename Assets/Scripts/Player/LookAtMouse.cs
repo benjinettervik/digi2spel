@@ -30,8 +30,6 @@ public class LookAtMouse : MonoBehaviour
 
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
             GetComponent<Rigidbody>().MoveRotation(newRotation);
-
-            print("hitting");
         }
     }
 }

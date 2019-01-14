@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-
-    public float speed = 6f;
-
+public class PlayerMovement : MonoBehaviour
+{
     Vector3 movement;
     Rigidbody playerRigidbody;
     int floorMask;
     float camRayLength = 100f;
+    public float speed = 6f;
 
     void Awake()
     {

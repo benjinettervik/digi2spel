@@ -16,7 +16,6 @@ public class ChangeRoom : MonoBehaviour
     {
         if (!isStartingRoom)
         {
-            print("disabling " + roomToEnable);
             SetRoomCoversState(roomToEnable, false);
         }
     }
@@ -34,10 +33,10 @@ public class ChangeRoom : MonoBehaviour
     {
         if (!hasEntered)
         {
-            hasEntered = true;
 
             if (other.name == "Player")
             {
+                hasEntered = true;
                 //ChangeRoomState(roomToEnable, true);
                 if (effect)
                     SetRoomCoversState(roomToEnable, true);

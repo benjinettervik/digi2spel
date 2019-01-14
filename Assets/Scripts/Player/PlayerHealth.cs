@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (health < 0f)
         {
-            enemy.isPlayerAlive = false;
+            //enemy.isPlayerAlive = false;
             Destroy(gameObject);
         }
         if (hitCount > 0)
