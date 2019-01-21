@@ -6,12 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    public GameObject gameController;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Player")
         {
-            SceneManager.LoadScene("menu");
+            StartCoroutine(gameController.GetComponent<FadeIn>().FadeInImage(true));
+            StartCoroutine(DelayLoadScene());
         }
+    }
+
+    IEnumerator DelayLoadScene()
+    {
+        print("loading scene in 3 seconds");
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("menu");
     }
 }

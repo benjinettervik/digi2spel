@@ -10,17 +10,29 @@ public class FadeIn : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(FadeInImage());
+        StartCoroutine(FadeInImage(false));
     }
 
-    IEnumerator FadeInImage()
+    public IEnumerator FadeInImage(bool fadeInOrOut)
     {
-        while (fadeImage.color.a > 0)
+        if (!fadeInOrOut)
         {
-            fadeImage.color -= new Color(0, 0, 0, 0.15f * Time.deltaTime);
-            yield return null;
+            while (fadeImage.color.a > 0)
+            {
+                fadeImage.color -= new Color(0, 0, 0, 0.15f * Time.deltaTime);
+                yield return null;
+            }
         }
 
+        else
+        {
+            while (fadeImage.color.a < 1)
+            {
+                print("fading");
+                fadeImage.color += new Color(0, 0, 0, 0.8f * Time.deltaTime);
+                yield return null;
+            }
+        }
         yield return false;
     }
 

@@ -11,10 +11,12 @@ public class movement : MonoBehaviour
     Rigidbody rb;
     Vector3 playerMovement;
 
+    CharacterController cc;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
     }
 
     float xMovement;
@@ -26,18 +28,19 @@ public class movement : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") == 0)
         {
-            xMovement = Mathf.Lerp(xMovement, 0, 0.5f);
+            xMovement = Mathf.Lerp(xMovement, 0, 1f);
         }
 
         if (Input.GetAxisRaw("Vertical") == 0)
         {
-            yMovement = Mathf.Lerp(yMovement, 0, 0.5f);
+            yMovement = Mathf.Lerp(yMovement, 0, 1f);
         }
 
         xMovement = Mathf.Clamp(xMovement, -1, 1);
         yMovement = Mathf.Clamp(yMovement, -1, 1);
 
         playerMovement = new Vector3(yMovement, 0, -xMovement);
+        //cc.Move(playerMovement * Time.deltaTime * speed);
     }
 
     private void FixedUpdate()
