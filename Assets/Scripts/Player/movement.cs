@@ -40,12 +40,12 @@ public class movement : MonoBehaviour
         yMovement = Mathf.Clamp(yMovement, -1, 1);
 
         playerMovement = new Vector3(yMovement, 0, -xMovement);
-        //cc.Move(playerMovement * Time.deltaTime * speed);
+        cc.Move(playerMovement * Time.deltaTime * speed);
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.transform.position + playerMovement * Time.deltaTime * speed);
+        //rb.MovePosition(rb.transform.position + playerMovement * Time.deltaTime * speed);
         //rb.velocity = playerMovement * Time.deltaTime * speed;
     }
 }

@@ -8,13 +8,12 @@ public class EditMaterial : MonoBehaviour
 
     private void Awake()
     {
-       CreateMaterial();
+        CreateMaterial();
     }
 
     void CreateMaterial()
     {
         GetComponent<MeshRenderer>().material = new Material(GetComponent<MeshRenderer>().materials[0]);
-
         objectMaterial = GetComponent<MeshRenderer>().material;
     }
 }

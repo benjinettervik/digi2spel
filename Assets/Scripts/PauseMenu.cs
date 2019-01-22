@@ -33,12 +33,10 @@ public class PauseMenu : MonoBehaviour {
     void DeactiveMenu()
     {
         Time.timeScale = 1;
-        pauseMenuUI.SetActive(false);
     }
     public void buttonAcivate()
     {
         Time.timeScale = 0;
-        pauseMenuUI.SetActive(true);
         isPaused = false;
     }
 }

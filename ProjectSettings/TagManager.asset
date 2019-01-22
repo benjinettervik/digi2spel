@@ -9,6 +9,7 @@ TagManager:
   - Sword
   - Enemy
   - Barrel
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
