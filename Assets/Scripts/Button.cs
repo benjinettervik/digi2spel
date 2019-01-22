@@ -8,7 +8,7 @@ public class Button : Objective
     bool isInTrigger;
     public bool isEnabled;
     public GameObject popUpText;
-
+    GameObject player;
     Material mat;
 
     private void Start()
@@ -18,8 +18,6 @@ public class Button : Objective
 
     private void Update()
     {
-        print(isEnabled);
-
         if (isInTrigger)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -91,6 +89,7 @@ public class Button : Objective
     {
         if (other.tag == "Player")
         {
+            player = other.gameObject;
             DisplayText();
             isInTrigger = true;
         }
@@ -98,7 +97,6 @@ public class Button : Objective
 
     private void OnTriggerExit(Collider other)
     {
-        print("exit");
         if (other.tag == "Player")
         {
             Destroy(currentText);
@@ -108,20 +106,21 @@ public class Button : Objective
 
     void OnClick()
     {
-        isCompleted = true;
-        roomController.GetComponent<RoomController>().CheckObjectiveCompleted();
+        currentText.transform.GetChild(0).GetComponent<PopUpText>().OnClick();
+        if (isEnabled)
+        {
+            isCompleted = true;
+            roomController.GetComponent<RoomController>().CheckObjectiveCompleted();
+        }
+        else
+        {
+            player.GetComponent<PlayerPopUpText>().Think("Seems like this button is disabled..");
+        }
     }
 
     void DisplayText()
     {
         currentText = Instantiate(popUpText);
-        if (isEnabled)
-        {
-            currentText.GetComponent<PopUpText>().InstantiateSetup(gameObject, "press E to click button");
-        }
-        else
-        {
-            currentText.GetComponent<PopUpText>().InstantiateSetup(gameObject, "button is disabled");
-        }
+        currentText.transform.GetChild(0).GetComponent<PopUpText>().InstantiateSetup(gameObject, "E", new Vector3(0, 0, 0.2f));
     }
 }

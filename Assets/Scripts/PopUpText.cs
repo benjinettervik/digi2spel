@@ -9,6 +9,7 @@ public class PopUpText : MonoBehaviour
     GameObject canvas;
     Text textObject;
     Camera mainCam;
+    Animator anim;
     bool hasBeenSetup;
 
 
@@ -17,21 +18,28 @@ public class PopUpText : MonoBehaviour
         canvas = GameObject.FindGameObjectWithTag("MainCanvas");
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         textObject = GetComponent<Text>();
-        transform.parent = canvas.transform;
+        anim = GetComponent<Animator>();
+        transform.parent.parent = canvas.transform;
     }
 
     private void Update()
     {
         if (hasBeenSetup)
         {
-            transform.position = mainCam.WorldToScreenPoint(linkedObject.transform.position + (Vector3.up / 2));
+            transform.parent.position = mainCam.WorldToScreenPoint(linkedObject.transform.position + (Vector3.up / 2) + direction);
         }
     }
 
-    public void InstantiateSetup(GameObject _linkedObject, string text)
+    public void OnClick()
     {
+        anim.Play("E_to_interact_click");
+    }
+
+    Vector3 direction;
+    public void InstantiateSetup(GameObject _linkedObject, string text, Vector3 _direction)
+    {
+        direction = _direction;
         linkedObject = _linkedObject;
-        transform.position = mainCam.WorldToScreenPoint(linkedObject.transform.position + (Vector3.up / 2));
         textObject.text = text;
 
         hasBeenSetup = true;
