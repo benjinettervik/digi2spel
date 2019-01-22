@@ -20,7 +20,7 @@ public class Button : Objective
     {
         if (isInTrigger)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("Interact"))
             {
                 OnClick();
             }
@@ -33,17 +33,14 @@ public class Button : Objective
 
         if (enable)
         {
-            print("starting light");
             StopCoroutine(ToggleLight(3, true));
             StartCoroutine(ToggleLight(3, true));
         }
         else if (!enable)
         {
-            print("disabling light");
             StopCoroutine(ToggleLight(0, false));
             StartCoroutine(ToggleLight(0, false));
         }
-
     }
 
     public IEnumerator ToggleLight(float intensity, bool lightState)
@@ -52,7 +49,6 @@ public class Button : Objective
         {
             while (mat.GetColor("_EmissionColor").r < 1.5f)
             {
-                print(mat.GetColor("_EmissionColor").r);
                 mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(Time.deltaTime, Time.deltaTime, Time.deltaTime) * 10);
 
                 if (!isEnabled)
@@ -107,6 +103,8 @@ public class Button : Objective
     void OnClick()
     {
         currentText.transform.GetChild(0).GetComponent<PopUpText>().OnClick();
+        PlayerPopUpText interactClass = player.GetComponent<PlayerPopUpText>();
+
         if (isEnabled)
         {
             isCompleted = true;
@@ -114,7 +112,7 @@ public class Button : Objective
         }
         else
         {
-            player.GetComponent<PlayerPopUpText>().Think("Seems like this button is disabled..");
+            interactClass.Think(interactClass.buttonDisabled);
         }
     }
 

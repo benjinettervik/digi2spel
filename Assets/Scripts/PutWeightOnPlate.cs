@@ -14,13 +14,11 @@ public class PutWeightOnPlate : Objective
             {
                 if (enable)
                 {
-                    print("enabkkng");
                     isCompleted = true;
                     ActivateObjects();
                 }
                 else
                 {
-                    print("disabling");
                     isCompleted = false;
                     DeActivateObjects();
                 }

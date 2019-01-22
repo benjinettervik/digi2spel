@@ -12,7 +12,6 @@ public class PopUpText : MonoBehaviour
     Animator anim;
     bool hasBeenSetup;
 
-
     private void Awake()
     {
         canvas = GameObject.FindGameObjectWithTag("MainCanvas");
