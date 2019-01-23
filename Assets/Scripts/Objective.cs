@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Objective : MonoBehaviour
 {
+    //checka denna i inspektorn så blir det lättare att hålla koll på vad som är vad
+    public bool notActualObjective;
     public bool isCompleted;
     public GameObject roomController;
     public GameObject[] objectivesToActivate;

@@ -28,19 +28,20 @@ public class PlayerPopUpText : MonoBehaviour
         }
     }
 
-    public void Think(string text)
+    public void Think(string _text)
     {
         StopAllCoroutines();
         textObject.color = Color.white;
         outline.effectColor = Color.black;
         textObject.gameObject.SetActive(true);
+        SetTextAreaWidth(_text);
         textObject.text = "";
-        StartCoroutine(DisplayTextGradually(text));
+        StartCoroutine(DisplayTextGradually(_text));
     }
 
-    IEnumerator DisplayTextGradually(string text)
+    IEnumerator DisplayTextGradually(string _text)
     {
-        char[] letters = text.ToCharArray();
+        char[] letters = _text.ToCharArray();
 
         foreach (char letter in letters)
         {
@@ -57,5 +58,14 @@ public class PlayerPopUpText : MonoBehaviour
             yield return false;
         }
         textObject.gameObject.SetActive(false);
+    }
+
+    void SetTextAreaWidth(string _text)
+    {
+        string currentMessage = _text;
+        if (currentMessage == buttonDisabled)
+        {
+            textObject.rectTransform.sizeDelta = new Vector2(280, 30);
+        }
     }
 }

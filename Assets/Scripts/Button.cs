@@ -64,7 +64,6 @@ public class Button : Objective
         {
             while (mat.GetColor("_EmissionColor").r > 0)
             {
-                print(mat.GetColor("_EmissionColor").r);
                 mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") - new Color(Time.deltaTime, Time.deltaTime, Time.deltaTime) * 10);
 
                 if (isEnabled)

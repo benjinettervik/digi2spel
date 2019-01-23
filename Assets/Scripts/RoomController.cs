@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
+    bool roomCompleted;
+
     public List<GameObject> objectives;
     public GameObject objectiveToToggle;
 
@@ -20,6 +22,10 @@ public class RoomController : MonoBehaviour
         }
 
         print("doing shit");
-        objectiveToToggle.GetComponent<Objective>().PerformAction();
+        if (!roomCompleted)
+        {
+            objectiveToToggle.GetComponent<Objective>().PerformAction();
+            roomCompleted = true;
+        }
     }
 }

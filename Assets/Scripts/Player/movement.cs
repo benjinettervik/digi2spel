@@ -23,6 +23,8 @@ public class movement : MonoBehaviour
     float yMovement;
     private void Update()
     {
+        Gravity();
+
         xMovement += Input.GetAxisRaw("Horizontal") * Time.deltaTime * accelerationSpeed;
         yMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed;
 
@@ -43,9 +45,12 @@ public class movement : MonoBehaviour
         cc.Move(playerMovement * Time.deltaTime * speed);
     }
 
-    private void FixedUpdate()
+    void Gravity()
     {
-        //rb.MovePosition(rb.transform.position + playerMovement * Time.deltaTime * speed);
-        //rb.velocity = playerMovement * Time.deltaTime * speed;
+        if (!cc.isGrounded)
+        {
+            //TODO lägga till gravitationacceleration
+            cc.Move(new Vector3(0, -9.82f, 0));
+        }
     }
 }
