@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 54016295001195858}
   - component: {fileID: 65059129128285744}
   m_Layer: 0
-  m_Name: NormalBarrel
+  m_Name: BigBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

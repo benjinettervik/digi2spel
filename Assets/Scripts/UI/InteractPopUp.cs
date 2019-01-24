@@ -14,7 +14,6 @@ public class InteractPopUp : MonoBehaviour
     public bool oneTimeInteraction;
     bool isInTrigger;
 
-
     private void Start()
     {
         parent = transform.parent.gameObject;
@@ -70,6 +69,9 @@ public class InteractPopUp : MonoBehaviour
     IEnumerator DestroyTextAfterTime()
     {
         yield return new WaitForSeconds(0.7f);
-        Destroy(currentText.transform.parent.gameObject);
+        if (currentText != null)
+        {
+            Destroy(currentText.transform.parent.gameObject);
+        }
     }
 }

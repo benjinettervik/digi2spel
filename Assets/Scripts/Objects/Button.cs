@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Button : Objective
 {
-    Light light;
     bool isInTrigger;
     public bool isEnabled;
     public GameObject popUpText;
+    Animator anim;
     GameObject player;
     Material mat;
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         mat = GetComponent<EditMaterial>().objectMaterial;
     }
 
@@ -103,6 +104,8 @@ public class Button : Objective
     {
         currentText.transform.GetChild(0).GetComponent<PopUpText>().OnClick();
         PlayerPopUpText interactClass = player.GetComponent<PlayerPopUpText>();
+
+        anim.Play("button_press");
 
         if (isEnabled)
         {
