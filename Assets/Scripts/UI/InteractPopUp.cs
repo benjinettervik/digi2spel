@@ -27,6 +27,12 @@ public class InteractPopUp : MonoBehaviour
             {
                 currentText.GetComponent<PopUpText>().OnClick();
                 parent.GetComponent<Interactable>().OnClick();
+
+                if (oneTimeInteraction)
+                {
+                    StartCoroutine(DestroyTextAfterTime());
+                }
+
                 hasBeenInteracted = true;
             }
         }
@@ -38,11 +44,6 @@ public class InteractPopUp : MonoBehaviour
         {
             isInTrigger = true;
             DisplayText();
-
-            if (oneTimeInteraction)
-            {
-                StartCoroutine(DestroyTextAfterTime());
-            }
         }
     }
 
