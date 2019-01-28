@@ -8,6 +8,9 @@ TagManager:
   - Wall
   - Sword
   - Enemy
+  - Barrel
+  - MainCanvas
+  - Mirror
   layers:
   - Default
   - TransparentFX
