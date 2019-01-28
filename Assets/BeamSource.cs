@@ -29,6 +29,8 @@ public class BeamSource : MonoBehaviour
                 Debug.DrawLine(hit.point, hit.point + Vector3.Reflect(hit.collider.transform.position - transform.position,
                     hit.normal), Color.green);
 
+                //InitiateBeam();
+
             }
         }
     }
