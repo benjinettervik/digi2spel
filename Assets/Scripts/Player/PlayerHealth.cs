@@ -2,33 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
-{
+public class playerHealth : MonoBehaviour {
 
-    public float health;
-    public int hitCount = 3;
-    public float hitTime = 2;
-    float curTime = 0;
+    public int currentHealth;
+    public int maxhealth = 5;
+    
 
     // Use this for initialization
     void Start()
     {
-
+        currentHealth = maxhealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (health < 0f)
+        if (currentHealth > maxhealth)
         {
-            //enemy.isPlayerAlive = false;
+            currentHealth = maxhealth;
+        }
+        if (currentHealth <= 0)
+        {
             Destroy(gameObject);
         }
-        if (hitCount > 0)
-        {
-            curTime += Time.deltaTime;
-        }
+    }
+    
+    public void Damage(int dmg)
+    {
+        currentHealth -= dmg;
     }
 }
-        
