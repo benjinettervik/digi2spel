@@ -33,7 +33,6 @@ public class ChangeRoom : MonoBehaviour
     {
         if (!hasEntered)
         {
-
             if (other.name == "Player")
             {
                 hasEntered = true;
@@ -82,7 +81,6 @@ public class ChangeRoom : MonoBehaviour
         {
             while (objectColor.color.a < 1)
             {
-
                 objectColor.color += new Color(0, 0, 0, 2f * Time.deltaTime);
                 yield return null;
             }
