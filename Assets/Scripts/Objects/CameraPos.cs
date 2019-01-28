@@ -8,11 +8,12 @@ public class CameraPos : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        transform.position = player.transform.position + new Vector3(-8, 10, 2);
+        transform.position = player.transform.position + new Vector3(-8, 10, 0);
     }
+
 }
