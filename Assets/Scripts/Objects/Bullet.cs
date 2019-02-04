@@ -8,13 +8,13 @@ public class Bullet : MonoBehaviour
     Rigidbody rb;
     public float BulletSpeed;
     public float lifetime;
-    private playerHealth player;
+    private PlayerHealth player;
     public int damage;
 
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody>();
         rb.AddRelativeForce(0, 0, BulletSpeed, ForceMode.Impulse);
         Destroy(gameObject, lifetime);

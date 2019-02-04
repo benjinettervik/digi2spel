@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [HideInInspector]
     public NavMeshAgent agent;
+    public float speed;
     public float health;
     public float damage;
     public float sightRange;
@@ -16,14 +17,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public Vector3 playerLastSpotted = Vector3.zero;
 
-    [HideInInspector]
     public GameObject player;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        agent = GetComponent<NavMeshAgent>();
-    }
 
     public void TakeDamage(float damage)
     {
