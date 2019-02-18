@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
                 {
                     playerLastSpotted = hit.collider.transform.position;
                     print("player is spotted");
+                    playerIsSpotted = true;
                 }
             }
         }
