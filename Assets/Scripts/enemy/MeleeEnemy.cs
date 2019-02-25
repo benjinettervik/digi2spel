@@ -6,11 +6,17 @@ using UnityEngine.AI;
 
 public class MeleeEnemy : Enemy
 {
+    NavMeshPath path;
+    Vector3 closestWalkablePos;
+    Vector3 positionToMoveTo;
+    NavMeshHit hit;
+    float timeSinceCalc;
     float timeSinceLastAttack;
     bool isAttacking;
     int pathIndex;
     public float attackSpeed;
     bool move;
+
     private void Awake()
     {
         path = new NavMeshPath();
@@ -22,10 +28,19 @@ public class MeleeEnemy : Enemy
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         SpotPlayer();
-        SetPath();
+    }
+
+    private void Update()
+    {
+        SetWalkingPosition();
+        if (Vector3.Distance(positionToMoveTo, transform.position) > 1)
+        {
+            SetPath();
+        }
+
         if (move)
         {
             MoveTowardsPlayer();
@@ -34,50 +49,35 @@ public class MeleeEnemy : Enemy
 
     void MoveTowardsPlayer()
     {
+        //kolla på spelaren ifall den är synlig
         if (playerIsSpotted)
         {
             LookAtPlayer();
         }
 
+        //om pathen har blivit klarkalkylerad så går fienden
         if (path.status == NavMeshPathStatus.PathComplete)
         {
-
-            if (pathIndex >= path.corners.Length)
+            if (path.corners.Length > 1)
             {
-                pathIndex = 0;
-                path = new NavMeshPath();
+                Vector3 moveDir = (path.corners[1] - transform.position).normalized;
+                moveDir.y = 0;
+                transform.position += moveDir * Time.deltaTime * speed;
+                Debug.DrawLine(transform.position + Vector3.up, (transform.position + Vector3.up) + moveDir);
             }
 
-            if (Vector3.Distance(transform.position, player.transform.position) < 5f)
+            /*if (Vector3.Distance(transform.position, player.transform.position) < 5f)
             {
                 if (Vector3.Distance(transform.position, player.transform.position) < 1.5f)
                 {
                     AttackPlayer();
                     return;
                 }
-                print("wlking towards palyer");
-                transform.position += (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
+                Vector3 moveDir = (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
+                moveDir.y = 0;
+                transform.position += moveDir;
             }
-
-            else
-            {
-                transform.position += (path.corners[pathIndex] - transform.position).normalized * Time.deltaTime * speed;
-            }
-
-            //transform.position += transform.forward * Time.deltaTime * speed;
-
-            if (Vector3.Distance(transform.position, path.corners[pathIndex]) < 0.1f)
-            {
-                print("increasing index");
-                if ((pathIndex + 1) < path.corners.Length)
-                    pathIndex++;
-                else
-                {
-                    print("resetting path");
-                    path = new NavMeshPath();
-                    pathIndex = 0;
-                }
-            }
+            */
         }
     }
 
@@ -93,21 +93,15 @@ public class MeleeEnemy : Enemy
                 }
             }
         }
+        Debug.DrawLine(playerLastSpotted, playerLastSpotted + Vector3.up * 5, Color.red);
     }
-
-    NavMeshPath path;
-    Vector3 closestWalkablePos;
-    Vector3 positionToMoveTo;
-    NavMeshHit hit;
-    float timeSinceCalc;
     void SetPath()
     {
+        Debug.ClearDeveloperConsole();
         timeSinceCalc += Time.deltaTime;
 
         if (timeSinceCalc >= 0f)
         {
-            positionToMoveTo = playerLastSpotted;
-
             agent.CalculatePath(positionToMoveTo, path);
             if (path.status == NavMeshPathStatus.PathInvalid)
             {
@@ -117,7 +111,7 @@ public class MeleeEnemy : Enemy
                 }
             }
 
-            print(path.corners.Length);
+            print("length " + path.corners.Length);
             move = true;
             timeSinceCalc = 0;
         }
@@ -125,7 +119,6 @@ public class MeleeEnemy : Enemy
 
     public void LookAtPlayer()
     {
-        print("looking at palyer");
         Quaternion lookRot = Quaternion.LookRotation(player.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 0.06f);
     }
@@ -133,5 +126,17 @@ public class MeleeEnemy : Enemy
     void AttackPlayer()
     {
         print("hitting");
+    }
+
+    void SetWalkingPosition()
+    {
+        if (moveToDesigPos)
+        {
+            positionToMoveTo = desigPos.position;
+        }
+        else
+        {
+            positionToMoveTo = playerLastSpotted;
+        }
     }
 }

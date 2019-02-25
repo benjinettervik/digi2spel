@@ -12,10 +12,13 @@ public class Enemy : MonoBehaviour
     public float damage;
     public float sightRange;
     public float engagementDistance;
+    public bool moveToDesigPos = true;
+    float timeSinceLastSpotted;
     [HideInInspector]
     public bool playerIsSpotted;
     [HideInInspector]
     public Vector3 playerLastSpotted = Vector3.zero;
+    public Transform desigPos;
 
     public GameObject player;
 
@@ -31,6 +34,7 @@ public class Enemy : MonoBehaviour
 
     public void SpotPlayer()
     {
+        timeSinceLastSpotted += Time.deltaTime;
         if (Vector3.Distance(transform.position, player.transform.position) < sightRange)
         {
             RaycastHit hit;
@@ -39,8 +43,14 @@ public class Enemy : MonoBehaviour
                 if (hit.collider.tag == "Player")
                 {
                     playerLastSpotted = hit.collider.transform.position;
-                    print("player is spotted");
                     playerIsSpotted = true;
+                    moveToDesigPos = false;
+                    //detta är för att förhindra att den hackar mycket när den ska kolla på spelaren, för av någon anledning trffar inte rayen spelaren typ varannan frame  
+                    timeSinceLastSpotted = 0;
+                }
+                else if(timeSinceLastSpotted > 0.5)
+                {
+                    playerIsSpotted = false;
                 }
             }
         }
