@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) < sightRange)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, sightRange))
+            if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, sightRange, 15))
             {
                 if (hit.collider.tag == "Player")
                 {

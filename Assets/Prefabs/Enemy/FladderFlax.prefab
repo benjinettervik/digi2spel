@@ -217,10 +217,13 @@ MonoBehaviour:
   damage: 5
   sightRange: 1000
   engagementDistance: 5
+  moveToDesigPos: 1
   playerIsSpotted: 0
   playerLastSpotted: {x: 0, y: 0, z: 0}
+  desigPos: {fileID: 0}
   player: {fileID: 0}
   attackSpeed: 0.5
+  moveTest: 0
 --- !u!195 &195784989065605034
 NavMeshAgent:
   m_ObjectHideFlags: 1

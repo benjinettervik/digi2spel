@@ -15,7 +15,10 @@ public class MeleeEnemy : Enemy
     bool isAttacking;
     int pathIndex;
     public float attackSpeed;
+    public float rangeUntilEngage;
     bool move;
+
+    public bool moveTest;
 
     private void Awake()
     {
@@ -24,6 +27,7 @@ public class MeleeEnemy : Enemy
 
     private void Start()
     {
+        Time.timeScale = 1;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -36,12 +40,14 @@ public class MeleeEnemy : Enemy
     private void Update()
     {
         SetWalkingPosition();
+        AttackPlayer();
+
         if (Vector3.Distance(positionToMoveTo, transform.position) > 1)
         {
             SetPath();
         }
 
-        if (move)
+        if (!moveTest)
         {
             MoveTowardsPlayer();
         }
@@ -62,22 +68,13 @@ public class MeleeEnemy : Enemy
             {
                 Vector3 moveDir = (path.corners[1] - transform.position).normalized;
                 moveDir.y = 0;
-                transform.position += moveDir * Time.deltaTime * speed;
-                Debug.DrawLine(transform.position + Vector3.up, (transform.position + Vector3.up) + moveDir);
+                if (Vector3.Distance(transform.position, player.transform.position) > rangeUntilEngage)
+                {
+                    transform.position += moveDir * Time.deltaTime * speed;
+                }
+                Debug.DrawLine(transform.position + Vector3.up, (transform.position + Vector3.up) + moveDir * 5);
             }
 
-            /*if (Vector3.Distance(transform.position, player.transform.position) < 5f)
-            {
-                if (Vector3.Distance(transform.position, player.transform.position) < 1.5f)
-                {
-                    AttackPlayer();
-                    return;
-                }
-                Vector3 moveDir = (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
-                moveDir.y = 0;
-                transform.position += moveDir;
-            }
-            */
         }
     }
 
@@ -95,6 +92,7 @@ public class MeleeEnemy : Enemy
         }
         Debug.DrawLine(playerLastSpotted, playerLastSpotted + Vector3.up * 5, Color.red);
     }
+
     void SetPath()
     {
         Debug.ClearDeveloperConsole();
@@ -125,7 +123,15 @@ public class MeleeEnemy : Enemy
 
     void AttackPlayer()
     {
-        print("hitting");
+        timeSinceLastAttack += Time.deltaTime;
+        if (Vector3.Distance(transform.position, player.transform.position) < 2f)
+        {
+            if (timeSinceLastAttack > 0.5f)
+            {
+                print("attacking");
+                timeSinceLastAttack = 0;
+            }
+        }
     }
 
     void SetWalkingPosition()
