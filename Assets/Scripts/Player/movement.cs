@@ -25,15 +25,15 @@ public class movement : MonoBehaviour
     {
         Gravity();
 
-        xMovement += Input.GetAxisRaw("Horizontal") * Time.deltaTime * accelerationSpeed;
-        yMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed;
+        xMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed;
+        yMovement += Input.GetAxisRaw("Horizontal") * Time.deltaTime * accelerationSpeed;
 
-        if (Input.GetAxisRaw("Horizontal") == 0)
+        if (Input.GetAxisRaw("Vertical") == 0)
         {
             xMovement = Mathf.Lerp(xMovement, 0, 1f);
         }
 
-        if (Input.GetAxisRaw("Vertical") == 0)
+        if (Input.GetAxisRaw("Horizontal") == 0)
         {
             yMovement = Mathf.Lerp(yMovement, 0, 1f);
         }

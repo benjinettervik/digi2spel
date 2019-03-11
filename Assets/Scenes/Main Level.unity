@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1428,10 +1428,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7406cf1390e69b4194683fb25d22dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notActualObjective: 0
   isCompleted: 0
   roomController: {fileID: 1344488788}
   objectivesToActivate:
   - {fileID: 1721361695}
+  objectivesToDeActivate: []
   designatedPosition: {fileID: 1905956576}
 --- !u!1 &234239859
 GameObject:
@@ -3941,9 +3943,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa58dde6df1c0244a9dd772354c03aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notActualObjective: 0
   isCompleted: 0
   roomController: {fileID: 0}
   objectivesToActivate: []
+  objectivesToDeActivate: []
 --- !u!65 &667556080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9615,10 +9619,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f7af59c9701c44e8f9933d1c086b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notActualObjective: 0
   isCompleted: 0
   roomController: {fileID: 1344488788}
   objectivesToActivate: []
+  objectivesToDeActivate: []
   isEnabled: 0
+  popUpText: {fileID: 0}
 --- !u!65 &1721361697
 BoxCollider:
   m_ObjectHideFlags: 0
