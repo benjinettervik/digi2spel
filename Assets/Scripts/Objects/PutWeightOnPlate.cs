@@ -37,6 +37,11 @@ public class PutWeightOnPlate : Objective
         CheckCollision(other.tag, false);
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        CheckCollision(other.tag, true);
+    }
+
     public override void ActionToBePerformed(bool enable)
     {
 

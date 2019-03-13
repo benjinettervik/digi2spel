@@ -5,6 +5,11 @@ using UnityEngine;
 public class BeamSource : MonoBehaviour
 {
     LineRenderer line;
+    List<Vector3> linePoints;
+
+    bool hasHitNewPoint;
+
+    Vector3 lastHitPoint;
 
     private void Start()
     {
@@ -13,25 +18,46 @@ public class BeamSource : MonoBehaviour
 
     private void Update()
     {
-        InitiateBeam();
+        InitiateBeam(transform.position);
     }
 
-    void InitiateBeam()
+    void InitiateBeam(Vector3 startPos)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 50))
+
+        if (Physics.Raycast(startPos, transform.forward, out hit, 50))
         {
-            Debug.DrawLine(transform.position, transform.position + transform.forward * hit.distance, Color.green);
-            print("yeet");
             if (hit.collider.tag == "Mirror")
             {
                 print("hit mirror");
-                Debug.DrawLine(hit.point, hit.point + Vector3.Reflect(hit.collider.transform.position - transform.position,
-                    hit.normal), Color.green);
 
-                //InitiateBeam();
-
+                hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point);
             }
+
+            Debug.DrawLine(startPos, startPos + transform.forward * hit.distance, Color.green);
+
+            /*
+            lastHitPoint = hit.point;
+
+            if (hasHitNewPoint)
+            {
+                linePoints = new List<Vector3>();
+                linePoints.Add(transform.position);
+                linePoints.Add(hit.point);
+                SetLineRenderer(linePoints);
+
+                hasHitNewPoint = false;
+            }
+            */
+
         }
+    }
+
+    void SetLineRenderer(List<Vector3> linePoints)
+    {
+        Vector3[] linePointsArray = new Vector3[linePoints.Count];
+        linePointsArray = linePoints.ToArray();
+
+        line.SetPositions(linePointsArray);
     }
 }

@@ -16,6 +16,7 @@ public class MeleeEnemy : Enemy
     int pathIndex;
     public float attackSpeed;
     public float rangeUntilEngage;
+    public float heightOverGround;
     bool move;
 
     public bool moveTest;
@@ -39,6 +40,7 @@ public class MeleeEnemy : Enemy
 
     private void Update()
     {
+        print(health);
         SetWalkingPosition();
         AttackPlayer();
 
@@ -109,7 +111,6 @@ public class MeleeEnemy : Enemy
                 }
             }
 
-            print("length " + path.corners.Length);
             move = true;
             timeSinceCalc = 0;
         }

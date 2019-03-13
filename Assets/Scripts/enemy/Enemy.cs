@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            //die
+            gameObject.SetActive(false);
         }
     }
 
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
                     playerLastSpotted = hit.collider.transform.position;
                     playerIsSpotted = true;
                     moveToDesigPos = false;
-                    //detta är för att förhindra att den hackar mycket när den ska kolla på spelaren, för av någon anledning trffar inte rayen spelaren typ varannan frame  
+                    //detta är för att förhindra att den hackar mycket när den ska kolla på spelaren, för av någon anledning träffar rayen spelaren typ varannan frame  
                     timeSinceLastSpotted = 0;
                 }
                 else if(timeSinceLastSpotted > 0.5)
