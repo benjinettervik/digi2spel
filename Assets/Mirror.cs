@@ -13,8 +13,8 @@ public class Mirror : MonoBehaviour
             if (hit.collider.tag == "Mirror")
             {
                 print("hit mirror");
-
             }
+
             Debug.DrawLine(hitPoint, hitPoint + transform.forward * hit.distance, Color.green);
         }
 
