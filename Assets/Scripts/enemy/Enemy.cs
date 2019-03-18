@@ -13,12 +13,15 @@ public class Enemy : MonoBehaviour
     public float sightRange;
     public float engagementDistance;
     public bool moveToDesigPos = true;
+    public bool isMoving;
     float timeSinceLastSpotted;
     [HideInInspector]
     public bool playerIsSpotted;
     [HideInInspector]
     public Vector3 playerLastSpotted = Vector3.zero;
     public Transform desigPos;
+
+    public Animator anim;
 
     public GameObject player;
 

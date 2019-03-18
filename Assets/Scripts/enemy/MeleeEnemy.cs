@@ -23,6 +23,7 @@ public class MeleeEnemy : Enemy
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         path = new NavMeshPath();
     }
 
@@ -53,6 +54,8 @@ public class MeleeEnemy : Enemy
         {
             MoveTowardsPlayer();
         }
+
+        SetAnimation();
     }
 
     void MoveTowardsPlayer()
@@ -68,15 +71,24 @@ public class MeleeEnemy : Enemy
         {
             if (path.corners.Length > 1)
             {
+                isMoving = true;
                 Vector3 moveDir = (path.corners[1] - transform.position).normalized;
                 moveDir.y = 0;
                 if (Vector3.Distance(transform.position, player.transform.position) > rangeUntilEngage)
                 {
                     transform.position += moveDir * Time.deltaTime * speed;
                 }
+                else
+                {
+                    isMoving = false;
+                }
                 Debug.DrawLine(transform.position + Vector3.up, (transform.position + Vector3.up) + moveDir * 5);
             }
 
+            else
+            {
+                isMoving = false;
+            }
         }
     }
 
@@ -92,12 +104,12 @@ public class MeleeEnemy : Enemy
                 }
             }
         }
+
         Debug.DrawLine(playerLastSpotted, playerLastSpotted + Vector3.up * 5, Color.red);
     }
 
     void SetPath()
     {
-        Debug.ClearDeveloperConsole();
         timeSinceCalc += Time.deltaTime;
 
         if (timeSinceCalc >= 0f)
@@ -127,11 +139,20 @@ public class MeleeEnemy : Enemy
         timeSinceLastAttack += Time.deltaTime;
         if (Vector3.Distance(transform.position, player.transform.position) < 2f)
         {
-            if (timeSinceLastAttack > 0.5f)
+            if (timeSinceLastAttack > 3f)
             {
+                anim.SetTrigger("AttackPlayer");
                 print("attacking");
                 timeSinceLastAttack = 0;
             }
+            else
+            {
+                anim.ResetTrigger("AttackPlayer");
+            }
+        }
+        else
+        {
+            anim.ResetTrigger("AttackPlayer");
         }
     }
 
@@ -144,6 +165,18 @@ public class MeleeEnemy : Enemy
         else
         {
             positionToMoveTo = playerLastSpotted;
+        }
+    }
+
+    void SetAnimation()
+    {
+        if (isMoving)
+        {
+            anim.SetBool("IsMoving", true);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", false);
         }
     }
 }

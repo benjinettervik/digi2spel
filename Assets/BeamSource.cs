@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeamSource : MonoBehaviour
 {
     LineRenderer line;
-    List<Vector3> linePoints;
+    public List<Vector3> linePoints;
 
     bool hasHitNewPoint;
 
@@ -23,6 +23,9 @@ public class BeamSource : MonoBehaviour
 
     void InitiateBeam(Vector3 startPos)
     {
+        linePoints = new List<Vector3>();
+        linePoints.Add(transform.position);
+
         RaycastHit hit;
 
         if (Physics.Raycast(startPos, transform.forward, out hit, 50))
@@ -31,33 +34,38 @@ public class BeamSource : MonoBehaviour
             {
                 print("hit mirror");
 
-                hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point);
+                Vector3 reflectedVector = Vector3.Reflect(transform.forward, hit.normal);
+                hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, 0, this);
+            }
+
+            else
+            {
+                linePoints.Add(hit.point);
+                //SetLineRenderer();
             }
 
             Debug.DrawLine(startPos, startPos + transform.forward * hit.distance, Color.green);
 
-            /*
-            lastHitPoint = hit.point;
+        }
 
-            if (hasHitNewPoint)
-            {
-                linePoints = new List<Vector3>();
-                linePoints.Add(transform.position);
-                linePoints.Add(hit.point);
-                SetLineRenderer(linePoints);
+    }
 
-                hasHitNewPoint = false;
-            }
-            */
-
+    private void OnDrawGizmos()
+    {
+        foreach(Vector3 linePoint in linePoints)
+        {
+            Debug.DrawLine(linePoint, linePoint + transform.up * 3, Color.blue);
         }
     }
 
-    void SetLineRenderer(List<Vector3> linePoints)
-    {
-        Vector3[] linePointsArray = new Vector3[linePoints.Count];
-        linePointsArray = linePoints.ToArray();
 
+    [SerializeField]
+    Vector3[] linePointsArray;
+
+    public int linePointsInActualLineRenderer;
+    public void SetLineRenderer()
+    {
+        linePointsArray = linePoints.ToArray();
         line.SetPositions(linePointsArray);
     }
 }
