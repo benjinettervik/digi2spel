@@ -11,6 +11,8 @@ TagManager:
   - Barrel
   - MainCanvas
   - Mirror
+  - Trigger
+  - BeamTarget
   layers:
   - Default
   - TransparentFX
@@ -25,9 +27,9 @@ TagManager:
   - Bullet
   - Floor
   - PostProcessing
-  - 
-  - 
-  - 
+  - Walkable
+  - Enemy
+  - Prop
   - 
   - 
   - 

@@ -8,7 +8,7 @@ public class AttackPlayer : MonoBehaviour
 
     UnityEngine.AI.NavMeshAgent nav;               // Reference to the nav mesh agent.
 
-    private playerHealth playerHp;
+    private PlayerHealth playerHp;
     private enemyHealth enemyHp;
     public int Range = 20;
 
@@ -18,7 +18,7 @@ public class AttackPlayer : MonoBehaviour
         // Set up the references.
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+        playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         enemyHp = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyHealth>();
     }
 
