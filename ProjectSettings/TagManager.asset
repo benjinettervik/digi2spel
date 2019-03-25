@@ -12,6 +12,7 @@ TagManager:
   - MainCanvas
   - Mirror
   - Trigger
+  - BeamTarget
   layers:
   - Default
   - TransparentFX

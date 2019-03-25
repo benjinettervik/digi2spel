@@ -31,11 +31,15 @@ public class Mirror : MonoBehaviour
 
             else
             {
+                if (hit.collider.tag == "BeamTarget")
+                {
+                    hit.collider.GetComponent<Objective>().PerformAction();
+                }
+
                 beamSource.linePoints.Add(hit.point);
                 print(gameObject.name + " is setting final mirror");
                 beamSource.SetLineRenderer();
             }
-
 
             Debug.DrawLine(hitPoint, hitPoint + _reflectedVector * hit.distance, Color.green);
         }
