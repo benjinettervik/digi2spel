@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224401075426635862}
   m_Layer: 5
-  m_Name: InteractTextPopUpParent
+  m_Name: InteractTextPopUpParent_put_this_as_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

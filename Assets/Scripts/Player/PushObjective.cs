@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarryBarrel : MonoBehaviour
+public class PushObjective : MonoBehaviour
 {
     GameObject currentBarrel;
     public GameObject barrelCarryPosition;
@@ -15,14 +15,6 @@ public class CarryBarrel : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         movement = GetComponent<PlayerMovement>();
-    }
-
-    private void Update()
-    {
-        if (isInteracting)
-        {
-            currentBarrel.transform.position = barrelCarryPosition.transform.position;
-        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

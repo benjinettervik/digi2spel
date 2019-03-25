@@ -18,6 +18,11 @@ public class BeamSource : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GetComponent<LineRenderer>().SetPosition(0, new Vector3(Random.Range(-5, 5), 0));
+        }
         InitiateBeam(transform.position);
     }
 
@@ -35,29 +40,18 @@ public class BeamSource : MonoBehaviour
                 print("hit mirror");
 
                 Vector3 reflectedVector = Vector3.Reflect(transform.forward, hit.normal);
-                hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, 0, this);
+                hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, 0, gameObject.GetComponent<BeamSource>());
             }
-
             else
             {
                 linePoints.Add(hit.point);
-                //SetLineRenderer();
+                SetLineRenderer();
             }
 
             Debug.DrawLine(startPos, startPos + transform.forward * hit.distance, Color.green);
-
         }
 
     }
-
-    private void OnDrawGizmos()
-    {
-        foreach(Vector3 linePoint in linePoints)
-        {
-            Debug.DrawLine(linePoint, linePoint + transform.up * 3, Color.blue);
-        }
-    }
-
 
     [SerializeField]
     Vector3[] linePointsArray;
@@ -65,7 +59,14 @@ public class BeamSource : MonoBehaviour
     public int linePointsInActualLineRenderer;
     public void SetLineRenderer()
     {
+        print("Setting line renderer with " + linePoints.Count + " positions");
         linePointsArray = linePoints.ToArray();
+        line.positionCount = linePointsArray.Length;
         line.SetPositions(linePointsArray);
+
+        foreach (Vector3 linePoint in linePointsArray)
+        {
+            Debug.DrawLine(linePoint, linePoint + transform.up * 3, Color.blue);
+        }
     }
 }

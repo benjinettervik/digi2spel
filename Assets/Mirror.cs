@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Mirror : MonoBehaviour
+public class Mirror : Objective
 {
-    // :)
     public bool isFinalMirror;
     public bool hasHitFinalMirror;
 
+    private void Update()
+    {
+        if (isInTrigger)
+        {
+            RotateMirror();
+        }
+    }
+
     public void MirrorBeam(Vector3 hitPoint, Vector3 _reflectedVector, int n, BeamSource beamSource)
     {
-        beamSource.linePoints.Add(transform.position);
+        beamSource.linePoints.Add(hitPoint);
 
         if (n > 60) { Debug.Log("Infinite loop?"); return; }
         RaycastHit hit;
@@ -42,6 +50,40 @@ public class Mirror : MonoBehaviour
             }
 
             Debug.DrawLine(hitPoint, hitPoint + _reflectedVector * hit.distance, Color.green);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            DisplayText();
+            currentText.transform.GetChild(0).GetComponent<PopUpText>().InstantiateSetup(gameObject, "Q    E", new Vector3(0, 0, 0.2f));
+            currentText.transform.GetChild(0).GetComponent<Text>().fontSize += 10;
+
+            isInTrigger = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            isInTrigger = false;
+            DestroyText();
+        }
+
+    }
+    void RotateMirror()
+    {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.localEulerAngles -= new Vector3(0, 10, 0) * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.localEulerAngles += new Vector3(0, 10, 0) * Time.deltaTime;
         }
     }
 }
