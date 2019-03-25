@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour
 {
-    private playerHealth player;
+    private PlayerHealth player;
     public int currentHealth;
     public int maxHealth = 1;
     public int damage;
@@ -12,7 +12,7 @@ public class enemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
 
