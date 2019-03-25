@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -155,6 +155,10 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe75bd78c6d893c4ba3b75023ba981ec, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &390754287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 390754286}
 --- !u!1 &451587353
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,11 +788,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1109554323843092, guid: fe75bd78c6d893c4ba3b75023ba981ec,
     type: 2}
   m_PrefabInternal: {fileID: 390754286}
---- !u!4 &1497445688 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4836874698011668, guid: fe75bd78c6d893c4ba3b75023ba981ec,
-    type: 2}
-  m_PrefabInternal: {fileID: 390754286}
 --- !u!1 &1623685765
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,10 +930,9 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5ef45de40ea98849a006d0ed1e4fe31, type: 2}
   m_IsPrefabAsset: 0
---- !u!224 &1804445873 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224407269595747630, guid: c5ef45de40ea98849a006d0ed1e4fe31,
-    type: 2}
+--- !u!4 &1804445873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1804445872}
 --- !u!1 &1828314819
 GameObject:
@@ -1321,7 +1319,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1497445688}
+  - {fileID: 390754287}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
