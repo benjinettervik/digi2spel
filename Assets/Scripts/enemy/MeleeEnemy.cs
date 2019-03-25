@@ -141,7 +141,7 @@ public class MeleeEnemy : Enemy
         {
             if (timeSinceLastAttack > 3f)
             {
-                anim.SetTrigger("AttackPlayer");
+                //anim.SetTrigger("AttackPlayer");
                 print("attacking");
                 timeSinceLastAttack = 0;
             }
