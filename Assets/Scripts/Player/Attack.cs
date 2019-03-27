@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     Animator swordAnim;
     Collider swordCollider;
 
+    bool isInTrigger;
     bool isActive;
 
     private void Start()
@@ -22,10 +23,12 @@ public class Attack : MonoBehaviour
         AttackOnClick();
     }
 
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Enemy")
         {
+            //detta fixas när vi har slag-animation
             if (isActive)
             {
                 print("hit " + other.name);

@@ -71,8 +71,8 @@ ModelImporter:
     - serializedVersion: 16
       name: flax
       takeName: Take 001
-      firstFrame: 15
-      lastFrame: 22
+      firstFrame: 12.6
+      lastFrame: 19.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -156,7 +156,7 @@ ModelImporter:
       name: IdleToFlax
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 12.6
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

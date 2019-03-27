@@ -29,7 +29,8 @@ public class MeleeEnemy : Enemy
 
     private void Start()
     {
-        Time.timeScale = 1;
+        SetupHealthBar();
+
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -41,7 +42,6 @@ public class MeleeEnemy : Enemy
 
     private void Update()
     {
-        print(health);
         SetWalkingPosition();
         AttackPlayer();
 

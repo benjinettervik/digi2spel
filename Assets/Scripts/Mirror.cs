@@ -63,7 +63,7 @@ public class Mirror : Objective
     {
         if (other.tag == "Player")
         {
-            DisplayText(gameObject, "Q    E", new Vector3(0, 0, 0.2f), 10);
+            DisplayText(gameObject, "Q       E", new Vector3(0, 0, 0.2f), 0);
 
             isInTrigger = true;
         }
@@ -82,12 +82,12 @@ public class Mirror : Objective
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.root.localEulerAngles -= new Vector3(0, 10, 0) * Time.deltaTime;
+            transform.parent.localEulerAngles -= new Vector3(0, 10, 0) * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            transform.root.localEulerAngles += new Vector3(0, 10, 0) * Time.deltaTime;
+            transform.parent.localEulerAngles += new Vector3(0, 10, 0) * Time.deltaTime;
         }
     }
 }

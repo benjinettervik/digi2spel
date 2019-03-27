@@ -28,7 +28,7 @@ public class PushObjective : MonoBehaviour
         if (hit.collider.gameObject.layer == pushableLayer)
         {
             //putta hela objektet
-            hit.transform.root.position += pushDir * Time.deltaTime;
+            hit.transform.position += pushDir * Time.deltaTime;
         }
     }
 }
