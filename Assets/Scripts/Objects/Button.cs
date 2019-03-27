@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Button : Objective
 {
-    bool isInTrigger;
     public bool isEnabled;
     Animator anim;
     GameObject player;
@@ -84,7 +83,7 @@ public class Button : Objective
         if (other.tag == "Player")
         {
             player = other.gameObject;
-            DisplayText();
+            DisplayText(gameObject, "E", Vector3.up / 3, 0);
             isInTrigger = true;
         }
     }

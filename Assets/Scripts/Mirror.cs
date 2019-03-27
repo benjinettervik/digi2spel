@@ -8,6 +8,12 @@ public class Mirror : Objective
 {
     public bool isFinalMirror;
     public bool hasHitFinalMirror;
+    int dontIgnoreLayers;
+
+    private void Start()
+    {
+        dontIgnoreLayers = 1 << LayerMask.NameToLayer("Default");
+    }
 
     private void Update()
     {
@@ -23,7 +29,7 @@ public class Mirror : Objective
 
         if (n > 60) { Debug.Log("Infinite loop?"); return; }
         RaycastHit hit;
-        if (Physics.Raycast(hitPoint, _reflectedVector, out hit, 50))
+        if (Physics.Raycast(hitPoint, _reflectedVector, out hit, 50, dontIgnoreLayers, QueryTriggerInteraction.Ignore))
         {
             if (hit.collider.tag == "Mirror" && hit.collider.gameObject != gameObject)
             {
@@ -57,9 +63,7 @@ public class Mirror : Objective
     {
         if (other.tag == "Player")
         {
-            DisplayText();
-            currentText.transform.GetChild(0).GetComponent<PopUpText>().InstantiateSetup(gameObject, "Q    E", new Vector3(0, 0, 0.2f));
-            currentText.transform.GetChild(0).GetComponent<Text>().fontSize += 10;
+            DisplayText(gameObject, "Q    E", new Vector3(0, 0, 0.2f), 10);
 
             isInTrigger = true;
         }
@@ -78,12 +82,12 @@ public class Mirror : Objective
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.localEulerAngles -= new Vector3(0, 10, 0) * Time.deltaTime;
+            transform.root.localEulerAngles -= new Vector3(0, 10, 0) * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            transform.localEulerAngles += new Vector3(0, 10, 0) * Time.deltaTime;
+            transform.root.localEulerAngles += new Vector3(0, 10, 0) * Time.deltaTime;
         }
     }
 }

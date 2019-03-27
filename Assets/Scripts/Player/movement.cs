@@ -11,6 +11,9 @@ public class movement : MonoBehaviour
     Rigidbody rb;
     Vector3 playerMovement;
 
+    [SerializeField]
+    int invertDir = 1;
+
     CharacterController cc;
 
     private void Start()
@@ -25,8 +28,8 @@ public class movement : MonoBehaviour
     {
         Gravity();
 
-        xMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed;
-        yMovement += Input.GetAxisRaw("Horizontal") * Time.deltaTime * accelerationSpeed;
+        xMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed * invertDir;
+        yMovement -= Input.GetAxisRaw("Horizontal") * Time.deltaTime * accelerationSpeed * invertDir;
 
         if (Input.GetAxisRaw("Vertical") == 0)
         {

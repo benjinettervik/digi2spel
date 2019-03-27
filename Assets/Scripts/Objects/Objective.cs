@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Objective : MonoBehaviour
 {
@@ -42,9 +43,12 @@ public class Objective : MonoBehaviour
         }
     }
 
-    public virtual void DisplayText()
+    public virtual void DisplayText(GameObject _linkedObject, string _text, Vector3 _direction, int _fontIncreasement)
     {
         currentText = Instantiate(popUpText);
+
+        currentText.transform.GetChild(0).GetComponent<PopUpText>().InstantiateSetup(_linkedObject, _text, _direction);
+        currentText.transform.GetChild(0).GetComponent<Text>().fontSize += _fontIncreasement;
     }
 
     public virtual void DestroyText()

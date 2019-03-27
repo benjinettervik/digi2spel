@@ -8,11 +8,13 @@ public class BeamSource : MonoBehaviour
     public List<Vector3> linePoints;
 
     bool hasHitNewPoint;
+    int dontIgnoreLayers;
 
     Vector3 lastHitPoint;
 
     private void Start()
     {
+        dontIgnoreLayers = 1 << LayerMask.NameToLayer("Default");
         line = GetComponent<LineRenderer>();
     }
 
@@ -33,14 +35,14 @@ public class BeamSource : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(startPos, transform.forward, out hit, 50))
+        if (Physics.Raycast(startPos, transform.forward, out hit, 1000, dontIgnoreLayers, QueryTriggerInteraction.Ignore))
         {
             if (hit.collider.tag == "Mirror")
             {
                 print("hit mirror");
 
                 Vector3 reflectedVector = Vector3.Reflect(transform.forward, hit.normal);
-                hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, 0, gameObject.GetComponent<BeamSource>());
+                hit.collider.transform.parent.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, 0, gameObject.GetComponent<BeamSource>());
             }
             else
             {

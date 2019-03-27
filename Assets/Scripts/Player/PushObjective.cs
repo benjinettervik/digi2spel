@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PushObjective : MonoBehaviour
 {
-    GameObject currentBarrel;
-    public GameObject barrelCarryPosition;
     PlayerMovement movement;
     CharacterController cc;
+    LayerMask pushableLayer;
 
     bool isInteracting;
 
     private void Start()
     {
+        pushableLayer = LayerMask.NameToLayer("Pushable");
         cc = GetComponent<CharacterController>();
         movement = GetComponent<PlayerMovement>();
     }
@@ -25,9 +25,10 @@ public class PushObjective : MonoBehaviour
         }
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        if (hit.collider.tag == "Barrel")
+        if (hit.collider.gameObject.layer == pushableLayer)
         {
-            hit.transform.position += pushDir * Time.deltaTime;
+            //putta hela objektet
+            hit.transform.root.position += pushDir * Time.deltaTime;
         }
     }
 }
