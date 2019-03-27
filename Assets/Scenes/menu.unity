@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -3597,6 +3597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa58dde6df1c0244a9dd772354c03aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notActualObjective: 0
   isCompleted: 0
   roomController: {fileID: 0}
   objectivesToActivate: []

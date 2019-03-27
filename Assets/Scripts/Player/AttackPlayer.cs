@@ -10,7 +10,7 @@ public class AttackPlayer : MonoBehaviour
 
     private PlayerHealth playerHp;
     private enemyHealth enemyHp;
-    public int Range = 20;
+    public int Range;
 
 
     void Awake()
@@ -29,14 +29,11 @@ public class AttackPlayer : MonoBehaviour
         
         if (player != null)
         {
-            if (Vector3.Distance(player.position, this.transform.position) < 20)
+            if (Vector3.Distance(player.position, this.transform.position) < Range)
             {
                 // ... set the destination of the nav mesh agent to the player.
                 nav.SetDestination(player.position);
-                if (Vector3.Distance(player.position, this.transform.position) < 10)
-                {
-                    nav.SetDestination(gameObject.transform.position);
-                }
+                
             }
             // Otherwise...
             else

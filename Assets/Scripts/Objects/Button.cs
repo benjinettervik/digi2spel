@@ -6,7 +6,6 @@ public class Button : Objective
 {
     bool isInTrigger;
     public bool isEnabled;
-    public GameObject popUpText;
     Animator anim;
     GameObject player;
     Material mat;
@@ -80,7 +79,6 @@ public class Button : Objective
         yield return false;
     }
 
-    GameObject currentText;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -95,7 +93,7 @@ public class Button : Objective
     {
         if (other.tag == "Player")
         {
-            Destroy(currentText);
+            DestroyText();
             isInTrigger = false;
         }
     }
@@ -116,11 +114,5 @@ public class Button : Objective
         {
             interactClass.Think(interactClass.buttonDisabled);
         }
-    }
-
-    void DisplayText()
-    {
-        currentText = Instantiate(popUpText);
-        currentText.transform.GetChild(0).GetComponent<PopUpText>().InstantiateSetup(gameObject, "E", new Vector3(0, 0, 0.2f));
     }
 }
