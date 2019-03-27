@@ -6,6 +6,8 @@ public class Sword : MonoBehaviour
 {
     public bool isActive;
     Animator animationController;
+    private enemyHealth enemy;
+    public int damage;
 
     private void Awake()
     {
@@ -26,11 +28,21 @@ public class Sword : MonoBehaviour
         }
     }
 
+
     IEnumerator SetSwordActive()
     {
         yield return new WaitForSeconds(0.5f);
         isActive = true;
         yield return new WaitForSeconds(0.5f);
         isActive = false;
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == ("Enemy"))
+        {
+            enemy = collision.gameObject.GetComponent<enemyHealth>();
+            enemy.Damage(2);
+        }
     }
 }

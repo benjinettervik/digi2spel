@@ -11,14 +11,14 @@ public class PlayerPopUpText : MonoBehaviour
     #endregion
     public Text textObject;
     public GameObject textPos;
-    Camera camera;
+    Camera cam;
     Outline outline;
 
     public bool disablePopUp;
 
     private void Start()
     {
-        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (!disablePopUp)
             outline = textObject.GetComponent<Outline>();
     }
