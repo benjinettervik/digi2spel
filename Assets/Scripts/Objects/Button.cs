@@ -9,10 +9,12 @@ public class Button : Objective
     GameObject player;
     Material mat;
 
-    private void Start()
+    public override void Start()
     {
         anim = GetComponent<Animator>();
         mat = GetComponent<EditMaterial>().objectMaterial;
+
+        base.Start();
     }
 
     private void Update()
@@ -46,9 +48,9 @@ public class Button : Objective
     {
         if (lightState)
         {
-            while (mat.GetColor("_EmissionColor").r < 1.5f)
+            while (mat.GetColor("_EmissionColor").g < 1.5f)
             {
-                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(Time.deltaTime, Time.deltaTime, Time.deltaTime) * 10);
+                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(0, Time.deltaTime, 0  ) * 10);
 
                 if (!isEnabled)
                 {
@@ -61,9 +63,9 @@ public class Button : Objective
         }
         else
         {
-            while (mat.GetColor("_EmissionColor").r > 0)
+            while (mat.GetColor("_EmissionColor").g > 0)
             {
-                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") - new Color(Time.deltaTime, Time.deltaTime, Time.deltaTime) * 10);
+                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") - new Color(0, Time.deltaTime, 0) * 10);
 
                 if (isEnabled)
                 {

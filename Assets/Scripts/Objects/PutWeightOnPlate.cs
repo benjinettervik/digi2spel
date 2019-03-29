@@ -14,11 +14,17 @@ public class PutWeightOnPlate : Objective
             {
                 if (enable)
                 {
+                    GetComponent<EditMaterial>().materials[1].color = Color.green;
+                    GetComponent<EditMaterial>().materials[1].SetColor("_EmissionColor", Color.green);
+
                     isCompleted = true;
                     ActivateObjects();
                 }
                 else
                 {
+                    GetComponent<EditMaterial>().materials[1].color = Color.red;
+                    GetComponent<EditMaterial>().materials[1].SetColor("_EmissionColor", Color.red);
+
                     isCompleted = false;
                     DeActivateObjects();
                 }

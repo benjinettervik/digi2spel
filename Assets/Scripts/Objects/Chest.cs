@@ -34,7 +34,7 @@ public class Chest : Interactable
         GameObject objectToSpawnSprite;
         var objectToSpawnVar = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
         objectToSpawnSprite = objectToSpawnVar.transform.Find("ObjectSprite").gameObject;
-        objectToSpawnSprite.transform.parent = canvas.transform;
+        objectToSpawnSprite.transform.SetParent(canvas.transform);
         objectToSpawnSprite.transform.rotation = transform.rotation;
         StartCoroutine(SetSpritePosition(objectToSpawnSprite));
     }

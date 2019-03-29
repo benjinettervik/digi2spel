@@ -36,7 +36,6 @@ public class EditMaterial : MonoBehaviour
 
             foreach (Material material in skinnedMeshRenderer.materials)
             {
-                Debug.Log("found material", gameObject);
                 materials.Add(material);
             }
         }

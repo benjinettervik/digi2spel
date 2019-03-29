@@ -39,8 +39,6 @@ public class BeamSource : MonoBehaviour
         {
             if (hit.collider.tag == "Mirror")
             {
-                print("hit mirror");
-
                 Vector3 reflectedVector = Vector3.Reflect(transform.forward, hit.normal);
                 hit.collider.transform.parent.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, 0, gameObject.GetComponent<BeamSource>());
             }
@@ -61,7 +59,6 @@ public class BeamSource : MonoBehaviour
     public int linePointsInActualLineRenderer;
     public void SetLineRenderer()
     {
-        print("Setting line renderer with " + linePoints.Count + " positions");
         linePointsArray = linePoints.ToArray();
         line.positionCount = linePointsArray.Length;
         line.SetPositions(linePointsArray);

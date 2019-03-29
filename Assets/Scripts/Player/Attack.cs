@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
 
     private void Update()
     {
-        AttackOnClick();
+        //AttackOnClick();
     }
 
 
@@ -29,11 +29,17 @@ public class Attack : MonoBehaviour
         if (other.tag == "Enemy")
         {
             //detta fixas när vi har slag-animation
-            if (isActive)
+            /*if (isActive)
             {
                 print("hit " + other.name);
                 other.GetComponent<Enemy>().TakeDamage(damage);
                 isActive = false;
+            }
+            */
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                other.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
     }

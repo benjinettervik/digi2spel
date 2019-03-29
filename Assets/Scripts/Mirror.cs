@@ -10,6 +10,9 @@ public class Mirror : Objective
     public bool hasHitFinalMirror;
     int dontIgnoreLayers;
 
+    GameObject lastHitBeamTarget;
+    bool hasHitBeamTarget;
+
     private void Start()
     {
         dontIgnoreLayers = 1 << LayerMask.NameToLayer("Default");
@@ -33,7 +36,6 @@ public class Mirror : Objective
         {
             if (hit.collider.tag == "Mirror" && hit.collider.gameObject != gameObject)
             {
-                print("hit mirror");
                 Vector3 reflectedVector = Vector3.Reflect(_reflectedVector, hit.normal);
                 hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, n, beamSource);
 
@@ -48,10 +50,16 @@ public class Mirror : Objective
                 if (hit.collider.tag == "BeamTarget")
                 {
                     hit.collider.GetComponent<Objective>().PerformAction();
+                    lastHitBeamTarget = hit.collider.gameObject;
+                    hasHitBeamTarget = true;
+                }
+                else if (hasHitBeamTarget)
+                {
+                    lastHitBeamTarget.GetComponent<Objective>().DisperformAction();
+                    hasHitBeamTarget = false;
                 }
 
                 beamSource.linePoints.Add(hit.point);
-                print(gameObject.name + " is setting final mirror");
                 beamSource.SetLineRenderer();
             }
 

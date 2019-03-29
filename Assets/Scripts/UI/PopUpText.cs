@@ -19,7 +19,6 @@ public class PopUpText : MonoBehaviour
         textObject = GetComponent<Text>();
         anim = GetComponent<Animator>();
         transform.parent.SetParent(canvas.transform);
-        Debug.Log("text has awokenn", gameObject);
     }
 
     private void Update()

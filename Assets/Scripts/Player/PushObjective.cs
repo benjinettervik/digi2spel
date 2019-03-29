@@ -7,8 +7,9 @@ public class PushObjective : MonoBehaviour
     PlayerMovement movement;
     CharacterController cc;
     LayerMask pushableLayer;
+    GameObject pushingObject;
 
-    bool isInteracting;
+    bool isPushing;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class PushObjective : MonoBehaviour
         cc = GetComponent<CharacterController>();
         movement = GetComponent<PlayerMovement>();
     }
+
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -27,8 +29,9 @@ public class PushObjective : MonoBehaviour
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
         if (hit.collider.gameObject.layer == pushableLayer)
         {
-            //putta hela objektet
-            hit.transform.position += pushDir * Time.deltaTime;
+            pushingObject = hit.collider.gameObject;
+            //hit.transform.position += pushDir * Time.deltaTime;
+            hit.collider.GetComponent<Rigidbody>().MovePosition(hit.collider.transform.position + pushDir * Time.deltaTime * 2);
         }
     }
 }

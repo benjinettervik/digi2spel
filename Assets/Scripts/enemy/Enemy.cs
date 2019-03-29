@@ -94,8 +94,7 @@ public class Enemy : MonoBehaviour
             material.SetColor("_EmissionColor", Color.red);
         }
 
-        print("setting tiem");
-        Time.timeScale = 0.15f;
+        Time.timeScale = 0f;
 
         yield return new WaitForSecondsRealtime(0.3f);
 

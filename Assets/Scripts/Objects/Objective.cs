@@ -18,9 +18,48 @@ public class Objective : MonoBehaviour
     [HideInInspector]
     public GameObject currentText;
 
+    public Dictionary<GameObject, bool> gameObjectsToBeActivatedBy = new Dictionary<GameObject, bool>();
+
+    public virtual void Start()
+    {
+        foreach (GameObject objective in objectivesToActivate)
+        {
+            objective.GetComponent<Objective>().gameObjectsToBeActivatedBy.Add(gameObject, false);
+        }
+
+        if (gameObjectsToBeActivatedBy.Count > 0)
+        {
+            //ActionToBePerformed(false);
+        }
+    }
+
     public virtual void PerformAction()
     {
 
+    }
+
+    public virtual void DisperformAction()
+    {
+
+    }
+
+    //döper det till dessa retarded namn för jag glömmer nästan vad jag håller på med
+    public void CheckIfAllObjectsHaveActivatedCurrentObject(bool enable, GameObject activatingObject)
+    {
+        if (gameObjectsToBeActivatedBy.ContainsKey(activatingObject))
+        {
+            gameObjectsToBeActivatedBy[activatingObject] = true;
+        }
+
+        foreach (KeyValuePair<GameObject, bool> entry in gameObjectsToBeActivatedBy)
+        {
+            if (entry.Value == false)
+            {
+                return;
+            }
+        }
+
+        ActionToBePerformed(enable);
     }
 
     public virtual void ActionToBePerformed(bool enable)
@@ -32,14 +71,17 @@ public class Objective : MonoBehaviour
     {
         foreach (GameObject objective in objectivesToActivate)
         {
-            objective.GetComponent<Objective>().ActionToBePerformed(true);
+            objective.GetComponent<Objective>().CheckIfAllObjectsHaveActivatedCurrentObject(true, gameObject);
         }
     }
+
     public void DeActivateObjects()
     {
         foreach (GameObject objective in objectivesToDeActivate)
         {
             objective.GetComponent<Objective>().ActionToBePerformed(false);
+            //inte optimalt och fint
+            objective.GetComponent<Objective>().gameObjectsToBeActivatedBy[gameObject] = false;
         }
     }
 
