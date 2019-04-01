@@ -14,17 +14,18 @@ public class Attack : MonoBehaviour
 
     private void Start()
     {
-        swordCollider = sword.GetComponent<Collider>();
-        swordAnim = sword.transform.parent.GetComponent<Animator>();
+        swordCollider = GetComponent<Collider>();
+        swordAnim = transform.parent.GetComponent<Animator>();
     }
 
     private void Update()
     {
         //AttackOnClick();
 
+        print(isInTrigger);
+
         if (Input.GetKeyDown(KeyCode.Space) && isInTrigger && !(enemy == null))
         {
-            print("=????");
             enemy.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
@@ -34,6 +35,7 @@ public class Attack : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            Debug.Log("yes", gameObject);
             isInTrigger = true;
             //detta fixas när vi har slag-animation
             /*if (isActive)
@@ -43,7 +45,7 @@ public class Attack : MonoBehaviour
                 isActive = false;
             }
             */
-            enemy = other.gameObject;   
+            enemy = other.gameObject;
         }
     }
 

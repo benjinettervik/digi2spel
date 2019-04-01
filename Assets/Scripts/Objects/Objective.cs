@@ -10,18 +10,28 @@ public class Objective : MonoBehaviour
     public bool isCompleted;
     [HideInInspector]
     public bool isInTrigger;
+    [Header("Varje rum har en egen room controller")]
     public GameObject roomController;
+    [Header("Alla objekt som DETTA objektet ska aktivera")]
     public GameObject[] objectivesToActivate;
     public GameObject[] objectivesToDeActivate;
 
     public GameObject popUpText;
     [HideInInspector]
     public GameObject currentText;
+    public GameObject player;
 
+    [HideInInspector]
+    public PlayerPopUpText playerInteract;
+
+    [Header("Om detta objekt inte ska vara aktiverat innan något annat har blivit aktiverat, lägg de(t) andra objekten här")]
     public Dictionary<GameObject, bool> gameObjectsToBeActivatedBy = new Dictionary<GameObject, bool>();
 
     public virtual void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerInteract = player.GetComponent<PlayerPopUpText>();
+
         foreach (GameObject objective in objectivesToActivate)
         {
             objective.GetComponent<Objective>().gameObjectsToBeActivatedBy.Add(gameObject, false);

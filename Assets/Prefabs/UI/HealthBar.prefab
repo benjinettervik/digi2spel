@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4dcfdcbc12c17a4b83610560a5063b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemyHealthBar: 1
 --- !u!222 &222020874700539784
 CanvasRenderer:
   m_ObjectHideFlags: 1

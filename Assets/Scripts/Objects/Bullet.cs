@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         if(collider.tag == "Player")
         {
-            player.Damage(damage);
+            player.TakeDamage(damage);
             Destroy(gameObject);
         }
         if (collider.tag == "Wall")

@@ -40,8 +40,6 @@ public class Enemy : MonoBehaviour
         health -= damage;
         healthBar.GetComponent<Slider>().value = health;
 
-        print("taking " + damage + " damage");
-
         if (health <= 0)
         {
             StartCoroutine(TakeDamageEffects(true));
@@ -99,7 +97,7 @@ public class Enemy : MonoBehaviour
         while (timeSinceStart < 0.5f)
         {
             timeSinceStart += Time.unscaledDeltaTime;
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 5f * Time.unscaledDeltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 1f * Time.unscaledDeltaTime);
 
             yield return false;
         }

@@ -6,7 +6,6 @@ public class Button : Objective
 {
     public bool isEnabled;
     Animator anim;
-    GameObject player;
     Material mat;
 
     public override void Start()
@@ -107,8 +106,6 @@ public class Button : Objective
     void OnClick()
     {
         currentText.transform.GetChild(0).GetComponent<PopUpText>().OnClick();
-        PlayerPopUpText interactClass = player.GetComponent<PlayerPopUpText>();
-
 
         if (isEnabled)
         {
@@ -119,7 +116,7 @@ public class Button : Objective
         else
         {
             anim.Play("lever_pull_fake");
-            interactClass.Think(interactClass.buttonDisabled);
+            playerInteract.Think(playerInteract.buttonDisabled);
         }
     }
 }
