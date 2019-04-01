@@ -22,7 +22,7 @@ public class Attack : MonoBehaviour
     {
         //AttackOnClick();
 
-        if (Input.GetKeyDown(KeyCode.Space) && isInTrigger)
+        if (Input.GetKeyDown(KeyCode.Space) && isInTrigger && !(enemy == null))
         {
             print("=????");
             enemy.GetComponent<Enemy>().TakeDamage(damage);
@@ -43,15 +43,14 @@ public class Attack : MonoBehaviour
                 isActive = false;
             }
             */
-            enemy = other.gameObject;
-
-            
+            enemy = other.gameObject;   
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         isInTrigger = false;
+        enemy = null;
     }
 
     Coroutine swordAttack;

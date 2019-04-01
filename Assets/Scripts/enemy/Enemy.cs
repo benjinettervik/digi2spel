@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
 
     public EditMaterial editMaterial;
 
+    public GameObject hitPosition;
+
     [HideInInspector]
     public GameObject player;
     public GameObject healthBarObj;
@@ -42,12 +44,11 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            StartCoroutine(RotateBack(true));
+            StartCoroutine(TakeDamageEffects(true));
         }
         else
         {
-            StartCoroutine(ChangeColorOnDamage());
-            StartCoroutine(RotateBack(false));
+            StartCoroutine(TakeDamageEffects(false));
         }
     }
 
@@ -78,8 +79,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        healthBar.SetActive(false);
-        gameObject.SetActive(false);
+        Destroy(healthBar);
+        Destroy(gameObject);
     }
 
     public void SetupHealthBar()
@@ -93,23 +94,21 @@ public class Enemy : MonoBehaviour
     {
         float timeSinceStart = 0;
 
-        Vector3 hitRot = new Vector3(30, 0, 0);
+        Quaternion lookRot = Quaternion.LookRotation(hitPosition.transform.position - transform.position);
 
         while (timeSinceStart < 0.5f)
         {
             timeSinceStart += Time.unscaledDeltaTime;
-            transform.localRotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(hitRot), 0.06f);
-            yield return false;
-        }
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 5f * Time.unscaledDeltaTime);
 
-        if (die)
-        {
-            Die();
+            yield return false;
         }
     }
 
-    IEnumerator ChangeColorOnDamage()
+    IEnumerator TakeDamageEffects(bool die)
     {
+        StartCoroutine(RotateBack(die));
+
         foreach (Material material in editMaterial.materials)
         {
             material.EnableKeyword("_EMISSION");
@@ -127,5 +126,9 @@ public class Enemy : MonoBehaviour
             material.DisableKeyword("_EMISSION");
         }
 
+        if (die)
+        {
+            Die();
+        }
     }
 }

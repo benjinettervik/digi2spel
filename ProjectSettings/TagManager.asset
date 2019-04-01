@@ -13,6 +13,7 @@ TagManager:
   - Mirror
   - Trigger
   - BeamTarget
+  - FinalDoor
   layers:
   - Default
   - TransparentFX

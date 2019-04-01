@@ -197,6 +197,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1641817504981786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4171733301058868}
+  m_Layer: 0
+  m_Name: HitPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1813152145419206
 GameObject:
   m_ObjectHideFlags: 1
@@ -254,6 +269,19 @@ Transform:
   m_Father: {fileID: 4394853939016336}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4171733301058868
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641817504981786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0421, z: 0.0415}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4394853939016336}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4241131350704550
 Transform:
   m_ObjectHideFlags: 1
@@ -301,13 +329,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515191173434428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1667018, y: 0.123, z: -8.332914}
+  m_LocalPosition: {x: -3.1667018, y: 1.168, z: -8.332914}
   m_LocalScale: {x: 18.16035, y: 18.16035, z: 18.16035}
   m_Children:
   - {fileID: 4604990013765888}
   - {fileID: 4123433082263974}
   - {fileID: 4323972386022132}
   - {fileID: 4400728748304620}
+  - {fileID: 4171733301058868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -489,6 +518,7 @@ MonoBehaviour:
   desigPos: {fileID: 0}
   anim: {fileID: 0}
   editMaterial: {fileID: 114688949209208070}
+  hitPosition: {fileID: 1641817504981786}
   player: {fileID: 0}
   healthBarObj: {fileID: 1545524061924694, guid: d8fdc8cca7e75624ca2658d1d9878e46,
     type: 2}
