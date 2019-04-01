@@ -160,7 +160,7 @@ public class MeleeEnemy : Enemy
     {
         if (moveToDesigPos)
         {
-            positionToMoveTo = desigPos.position;
+            //positionToMoveTo = desigPos.position;
         }
         else
         {

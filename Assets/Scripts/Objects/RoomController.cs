@@ -8,6 +8,7 @@ public class RoomController : MonoBehaviour
 
     public List<GameObject> objectives;
     public GameObject objectiveToToggle;
+    public List<GameObject> enemies;
 
     int completedObjectives;
     public void CheckObjectiveCompleted()
@@ -23,6 +24,11 @@ public class RoomController : MonoBehaviour
 
         print("doing shit");
         if (!roomCompleted)
+        {
+            objectiveToToggle.GetComponent<Objective>().PerformAction();
+            roomCompleted = true;
+        }
+        if (enemies.Count == 0)
         {
             objectiveToToggle.GetComponent<Objective>().PerformAction();
             roomCompleted = true;

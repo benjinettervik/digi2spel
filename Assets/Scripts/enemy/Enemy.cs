@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     public Animator anim;
 
     public EditMaterial editMaterial;
-
+    public GameObject roomcontroller;
     [HideInInspector]
     public GameObject player;
     public GameObject healthBarObj;
@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        roomcontroller.GetComponent<RoomController>().enemies.Remove(gameObject);
         healthBar.SetActive(false);
         gameObject.SetActive(false);
     }
@@ -95,7 +96,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 hitRot = new Vector3(30, 0, 0);
 
-        while (timeSinceStart < 0.5f)
+        while (timeSinceStart < 0.5f    )
         {
             timeSinceStart += Time.unscaledDeltaTime;
             transform.localRotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(hitRot), 0.06f);
