@@ -21,13 +21,20 @@ public class Attack : MonoBehaviour
     private void Update()
     {
         //AttackOnClick();
+
+        if (Input.GetKeyDown(KeyCode.Space) && isInTrigger)
+        {
+            print("=????");
+            enemy.GetComponent<Enemy>().TakeDamage(damage);
+        }
     }
 
-
-    private void OnTriggerStay(Collider other)
+    GameObject enemy;
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
         {
+            isInTrigger = true;
             //detta fixas när vi har slag-animation
             /*if (isActive)
             {
@@ -36,12 +43,15 @@ public class Attack : MonoBehaviour
                 isActive = false;
             }
             */
+            enemy = other.gameObject;
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                other.GetComponent<Enemy>().TakeDamage(damage);
-            }
+            
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isInTrigger = false;
     }
 
     Coroutine swordAttack;

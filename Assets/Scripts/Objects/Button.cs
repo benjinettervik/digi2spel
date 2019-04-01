@@ -49,7 +49,7 @@ public class Button : Objective
         if (lightState)
         {
             mat.color = Color.green;
-            mat.SetColor("_EmissionColor", Color.green * 15);
+            mat.SetColor("_EmissionColor", Color.green * 7);
             /* while (mat.GetColor("_EmissionColor").g < 1.5f)
              {
                  mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(0, Time.deltaTime, 0) * 10);
@@ -67,7 +67,7 @@ public class Button : Objective
         else
         {
             mat.color = Color.red;
-            mat.SetColor("_EmissionColor", Color.red * 15);
+            mat.SetColor("_EmissionColor", Color.red * 7);
             /*
             while (mat.GetColor("_EmissionColor").g > 0)
             {

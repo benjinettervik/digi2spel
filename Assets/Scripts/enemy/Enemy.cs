@@ -38,13 +38,14 @@ public class Enemy : MonoBehaviour
         health -= damage;
         healthBar.GetComponent<Slider>().value = health;
 
+        print("taking " + damage + " damage");
+
         if (health <= 0)
         {
             Die();
         }
         else
         {
-            print("attacking asdasdasd");
             StartCoroutine(ChangeColorOnDamage());
         }
     }
