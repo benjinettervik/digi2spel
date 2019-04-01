@@ -18,7 +18,6 @@ public class PushObjective : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
     }
 
-
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.moveDirection.y < -0.3)

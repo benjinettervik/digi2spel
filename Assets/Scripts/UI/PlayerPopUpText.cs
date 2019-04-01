@@ -36,10 +36,10 @@ public class PlayerPopUpText : MonoBehaviour
         StopAllCoroutines();
         textObject.color = Color.white;
         outline.effectColor = Color.black;
-        textObject.gameObject.SetActive(true);
-        SetTextAreaWidth(_text);
+        SetTextAreaWidth(_text, 100, 30);
         textObject.text = "";
         StartCoroutine(DisplayTextGradually(_text));
+        textObject.gameObject.SetActive(true);
     }
 
     IEnumerator DisplayTextGradually(string _text)
@@ -63,12 +63,12 @@ public class PlayerPopUpText : MonoBehaviour
         textObject.gameObject.SetActive(false);
     }
 
-    void SetTextAreaWidth(string _text)
+    void SetTextAreaWidth(string _text, float x_offset, float y_offset)
     {
         string currentMessage = _text;
         if (currentMessage == buttonDisabled)
         {
-            textObject.rectTransform.sizeDelta = new Vector2(280, 30);
+            textObject.rectTransform.sizeDelta = new Vector2(x_offset, y_offset);
         }
     }
 }
