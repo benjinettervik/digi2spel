@@ -484,11 +484,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1434522104}
   objectivesToActivate:
   - {fileID: 18253589}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -3376,9 +3379,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &129171001
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4158,6 +4164,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -4392,6 +4402,10 @@ Prefab:
     - target: {fileID: 4568400349140640, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -5226,11 +5240,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate:
   - {fileID: 216454758}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -6348,7 +6365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &269649888
 Transform:
   m_ObjectHideFlags: 0
@@ -6532,9 +6549,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &273116057
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6800,6 +6820,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -7474,6 +7498,10 @@ Prefab:
     - target: {fileID: 1581706934015224, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
       propertyPath: m_Name
       value: CompleteTorch (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -8396,6 +8424,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -8813,6 +8845,10 @@ Prefab:
     - target: {fileID: 1643854448732378, guid: 36a1ee2b17de05e4390eeb9aa1fcb5e7, type: 2}
       propertyPath: m_Name
       value: Kruka med torch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1496463983454790, guid: 36a1ee2b17de05e4390eeb9aa1fcb5e7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a1ee2b17de05e4390eeb9aa1fcb5e7, type: 2}
@@ -9389,11 +9425,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 1
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 709636544}
   objectivesToActivate:
   - {fileID: 421621029}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -12959,9 +12998,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &548781867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13193,11 +13235,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 875136361}
   objectivesToActivate:
   - {fileID: 559646735}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
 --- !u!65 &559646738
@@ -13688,6 +13733,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -16272,6 +16321,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -17451,6 +17504,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -17799,11 +17856,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 2130105654}
   objectivesToActivate:
   - {fileID: 750826464}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -18383,11 +18443,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1152324610}
   objectivesToActivate:
   - {fileID: 779835829}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -24890,6 +24953,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -25206,9 +25273,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &894999973
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26824,6 +26894,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -27507,6 +27581,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -27759,6 +27837,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -27812,11 +27894,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1430750553}
   objectivesToActivate:
   - {fileID: 989488404}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -30654,6 +30739,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -9.929
       objectReference: {fileID: 0}
+    - target: {fileID: 1435381162760038, guid: 90c9d6363d410f947a0843a3f232e463, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c9d6363d410f947a0843a3f232e463, type: 2}
   m_IsPrefabAsset: 0
@@ -31370,6 +31459,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -37998,11 +38091,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 2001259876}
   objectivesToActivate:
   - {fileID: 1211658087}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -38427,9 +38523,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1222689820
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38839,6 +38938,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -40717,9 +40820,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1319814292
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42533,6 +42639,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1435381162760038, guid: 90c9d6363d410f947a0843a3f232e463, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c9d6363d410f947a0843a3f232e463, type: 2}
   m_IsPrefabAsset: 0
@@ -43625,6 +43735,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -43744,6 +43858,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -44737,9 +44855,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1489551555
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47077,11 +47198,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1067855720}
   objectivesToActivate:
   - {fileID: 1579534018}
   objectivesToDeActivate:
   - {fileID: 0}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -48001,10 +48125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 1
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 0}
   objectivesToActivate: []
   objectivesToDeActivate:
   - {fileID: 1564182753786660, guid: 6f237358336b3784498ea33e772b5867, type: 2}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   objectToSpawn: {fileID: 1564182753786660, guid: 6f237358336b3784498ea33e772b5867,
     type: 2}
 --- !u!1 &1636209397
@@ -48072,9 +48199,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1636209401
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48558,6 +48688,10 @@ Prefab:
     - target: {fileID: 4568400349140640, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -49511,9 +49645,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1687950007
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49754,6 +49891,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -50417,11 +50558,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1344488788}
   objectivesToActivate: []
   objectivesToDeActivate: []
-  isEnabled: 0
   popUpText: {fileID: 1658907415609190, guid: 4762c27cd36821445af9bbb796f15912, type: 2}
+  currentText: {fileID: 0}
+  isEnabled: 0
 --- !u!65 &1721361697
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51474,9 +51617,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1754015660
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51641,6 +51787,10 @@ Prefab:
     - target: {fileID: 4568400349140640, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -52044,6 +52194,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -53894,9 +54048,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1844865974
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59745,11 +59902,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1344488788}
   objectivesToActivate:
   - {fileID: 1721361695}
   objectivesToDeActivate:
   - {fileID: 1721361695}
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
   possibleTags:
   - Player
   - Barrel
@@ -60439,9 +60599,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1927119872
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60821,9 +60984,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1948602042
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61279,9 +61445,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1963884981
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61838,9 +62007,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &1999754692
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62246,6 +62418,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -62602,6 +62778,10 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
   m_IsPrefabAsset: 0
@@ -62675,9 +62855,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &2026803322
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62953,6 +63136,10 @@ Prefab:
         type: 2}
       propertyPath: m_Lightmapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -63305,6 +63492,10 @@ Prefab:
     - target: {fileID: 4568400349140640, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246325344786008, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0cac500e96354b4d9c67ba8de775a06, type: 2}
@@ -65008,9 +65199,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notActualObjective: 0
   isCompleted: 0
+  isInTrigger: 0
   roomController: {fileID: 1183849905}
   objectivesToActivate: []
   objectivesToDeActivate: []
+  popUpText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!23 &2146189564
 MeshRenderer:
   m_ObjectHideFlags: 0
