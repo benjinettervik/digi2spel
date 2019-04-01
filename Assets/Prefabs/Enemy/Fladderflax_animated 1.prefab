@@ -159,6 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4400728748304620}
   - component: {fileID: 137954052410436354}
+  - component: {fileID: 114688949209208070}
   m_Layer: 0
   m_Name: pCube3
   m_TagString: Untagged
@@ -451,6 +452,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114688949209208070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570241434266138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8ec43894634314d890790916c2d304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectMaterial: {fileID: 0}
+  materials: []
 --- !u!114 &114923347028482632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -474,7 +488,10 @@ MonoBehaviour:
   playerLastSpotted: {x: 0, y: 0, z: 0}
   desigPos: {fileID: 0}
   anim: {fileID: 0}
+  editMaterial: {fileID: 114688949209208070}
   player: {fileID: 0}
+  healthBarObj: {fileID: 1545524061924694, guid: d8fdc8cca7e75624ca2658d1d9878e46,
+    type: 2}
   attackSpeed: 0.5
   rangeUntilEngage: 2
   heightOverGround: 0.32

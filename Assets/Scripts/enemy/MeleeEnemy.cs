@@ -131,7 +131,7 @@ public class MeleeEnemy : Enemy
     public void LookAtPlayer()
     {
         Quaternion lookRot = Quaternion.LookRotation(player.transform.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 0.06f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 5f * Time.deltaTime);
     }
 
     void AttackPlayer()

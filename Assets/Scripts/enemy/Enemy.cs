@@ -42,11 +42,12 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            StartCoroutine(RotateBack(true));
         }
         else
         {
             StartCoroutine(ChangeColorOnDamage());
+            StartCoroutine(RotateBack(false));
         }
     }
 
@@ -85,6 +86,26 @@ public class Enemy : MonoBehaviour
     {
         healthBar = Instantiate(healthBarObj);
         healthBar.GetComponent<HealthBar>().Setup(gameObject, Vector3.up * 2);
+    }
+
+
+    IEnumerator RotateBack(bool die)
+    {
+        float timeSinceStart = 0;
+
+        Vector3 hitRot = new Vector3(30, 0, 0);
+
+        while (timeSinceStart < 0.5f)
+        {
+            timeSinceStart += Time.unscaledDeltaTime;
+            transform.localRotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(hitRot), 0.06f);
+            yield return false;
+        }
+
+        if (die)
+        {
+            Die();
+        }
     }
 
     IEnumerator ChangeColorOnDamage()

@@ -17744,29 +17744,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1515191173434428, guid: c896393195c5e5f4e801c1688b12bf8b, type: 2}
-      propertyPath: m_Name
-      value: Fladderflax
-      objectReference: {fileID: 0}
     - target: {fileID: 114923347028482632, guid: c896393195c5e5f4e801c1688b12bf8b,
         type: 2}
       propertyPath: desigPos
       value: 
       objectReference: {fileID: 1926707427}
-    - target: {fileID: 114923347028482632, guid: c896393195c5e5f4e801c1688b12bf8b,
-        type: 2}
-      propertyPath: healthBarObj
-      value: 
-      objectReference: {fileID: 1545524061924694, guid: d8fdc8cca7e75624ca2658d1d9878e46,
-        type: 2}
-    - target: {fileID: 114923347028482632, guid: c896393195c5e5f4e801c1688b12bf8b,
-        type: 2}
-      propertyPath: editMaterial
-      value: 
-      objectReference: {fileID: 1331997428}
     - target: {fileID: 1515191173434428, guid: c896393195c5e5f4e801c1688b12bf8b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Name
+      value: Fladderflax
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c896393195c5e5f4e801c1688b12bf8b, type: 2}
@@ -28090,24 +28075,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.013151912, y: 0.010000001, z: 0.010000003}
   m_Center: {x: 0.001576015, y: -4.656613e-10, z: 0.0000000016298145}
---- !u!1 &1331997425 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1570241434266138, guid: c896393195c5e5f4e801c1688b12bf8b,
-    type: 2}
-  m_PrefabInternal: {fileID: 899944154}
---- !u!114 &1331997428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1331997425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8ec43894634314d890790916c2d304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectMaterial: {fileID: 0}
-  materials: []
 --- !u!1001 &1335183861
 Prefab:
   m_ObjectHideFlags: 0
