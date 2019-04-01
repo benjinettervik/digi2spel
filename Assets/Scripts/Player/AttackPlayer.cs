@@ -8,9 +8,9 @@ public class AttackPlayer : MonoBehaviour
 
     UnityEngine.AI.NavMeshAgent nav;               // Reference to the nav mesh agent.
 
-    private playerHealth playerHp;
+    private PlayerHealth playerHp;
     private enemyHealth enemyHp;
-    public int Range = 20;
+    public int Range;
 
 
     void Awake()
@@ -18,7 +18,7 @@ public class AttackPlayer : MonoBehaviour
         // Set up the references.
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+        playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         enemyHp = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyHealth>();
     }
 
@@ -29,14 +29,11 @@ public class AttackPlayer : MonoBehaviour
         
         if (player != null)
         {
-            if (Vector3.Distance(player.position, this.transform.position) < 20)
+            if (Vector3.Distance(player.position, this.transform.position) < Range)
             {
                 // ... set the destination of the nav mesh agent to the player.
                 nav.SetDestination(player.position);
-                if (Vector3.Distance(player.position, this.transform.position) < 10)
-                {
-                    nav.SetDestination(gameObject.transform.position);
-                }
+                
             }
             // Otherwise...
             else

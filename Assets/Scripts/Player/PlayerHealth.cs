@@ -4,31 +4,22 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public float currentHealth;
+    public int maxhealth = 5;
 
-    public float health;
-    public int hitCount = 3;
-    public float hitTime = 2;
-    float curTime = 0;
-
-    // Use this for initialization
     void Start()
     {
-
+        currentHealth = maxhealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Damage(float dmg)
     {
+        currentHealth -= dmg;
 
-        if (health < 0f)
+        if (currentHealth <= 0)
         {
-            //enemy.isPlayerAlive = false;
-            Destroy(gameObject);
-        }
-        if (hitCount > 0)
-        {
-            curTime += Time.deltaTime;
+            //die
+            print("dead");
         }
     }
 }
-        
