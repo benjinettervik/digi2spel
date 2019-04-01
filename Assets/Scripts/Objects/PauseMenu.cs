@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : MonoBehaviour
+{
     [SerializeField] private GameObject pauseMenuUI;
 
     [SerializeField] private bool isPaused;
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
@@ -23,6 +25,7 @@ public class PauseMenu : MonoBehaviour {
         {
             DeactiveMenu();
         }
+        */
     }
     void ActiveMenu()
     {

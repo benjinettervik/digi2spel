@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     Animator swordAnim;
     Collider swordCollider;
 
+    bool isInTrigger;
     bool isActive;
 
     private void Start()
@@ -19,20 +20,38 @@ public class Attack : MonoBehaviour
 
     private void Update()
     {
-        AttackOnClick();
+        //AttackOnClick();
+
+        if (Input.GetKeyDown(KeyCode.Space) && isInTrigger)
+        {
+            print("=????");
+            enemy.GetComponent<Enemy>().TakeDamage(damage);
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    GameObject enemy;
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
         {
-            if (isActive)
+            isInTrigger = true;
+            //detta fixas när vi har slag-animation
+            /*if (isActive)
             {
                 print("hit " + other.name);
                 other.GetComponent<Enemy>().TakeDamage(damage);
                 isActive = false;
             }
+            */
+            enemy = other.gameObject;
+
+            
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isInTrigger = false;
     }
 
     Coroutine swordAttack;

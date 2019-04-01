@@ -7,11 +7,13 @@ public class Chest : Interactable
     BoxCollider boxColl;
     GameObject canvas;
     GameObject cam;
+    AudioSource audioSource;
     public GameObject objectToSpawn;
 
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         canvas = GameObject.FindGameObjectWithTag("MainCanvas");
         boxColl = GetComponent<BoxCollider>();
@@ -22,6 +24,7 @@ public class Chest : Interactable
     {
         anim.Play("ChestOpen");
 
+        audioSource.PlayDelayed(0.3f);
         SpawnObject();
 
         //eftersom kistan expanderar när man öppnar den måste box collidern bli större
@@ -34,7 +37,7 @@ public class Chest : Interactable
         GameObject objectToSpawnSprite;
         var objectToSpawnVar = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
         objectToSpawnSprite = objectToSpawnVar.transform.Find("ObjectSprite").gameObject;
-        objectToSpawnSprite.transform.parent = canvas.transform;
+        objectToSpawnSprite.transform.SetParent(canvas.transform);
         objectToSpawnSprite.transform.rotation = transform.rotation;
         StartCoroutine(SetSpritePosition(objectToSpawnSprite));
     }

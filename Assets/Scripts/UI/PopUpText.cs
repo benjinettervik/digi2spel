@@ -18,7 +18,7 @@ public class PopUpText : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         textObject = GetComponent<Text>();
         anim = GetComponent<Animator>();
-        transform.parent.parent = canvas.transform;
+        transform.parent.SetParent(canvas.transform);
     }
 
     private void Update()

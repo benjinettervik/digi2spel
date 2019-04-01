@@ -29,7 +29,8 @@ public class MeleeEnemy : Enemy
 
     private void Start()
     {
-        Time.timeScale = 1;
+        SetupHealthBar();
+
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -41,7 +42,6 @@ public class MeleeEnemy : Enemy
 
     private void Update()
     {
-        print(health);
         SetWalkingPosition();
         AttackPlayer();
 
@@ -131,7 +131,7 @@ public class MeleeEnemy : Enemy
     public void LookAtPlayer()
     {
         Quaternion lookRot = Quaternion.LookRotation(player.transform.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 0.06f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, 5f * Time.deltaTime);
     }
 
     void AttackPlayer()
