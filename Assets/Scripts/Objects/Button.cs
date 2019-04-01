@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Button : Objective
 {
-    bool isInTrigger;
     public bool isEnabled;
     Animator anim;
     GameObject player;
     Material mat;
 
-    private void Start()
+    public override void Start()
     {
         anim = GetComponent<Animator>();
-        mat = GetComponent<EditMaterial>().objectMaterial;
+        mat = GetComponent<EditMaterial>().materials[1];
+
+        base.Start();
     }
 
     private void Update()
@@ -33,38 +34,44 @@ public class Button : Objective
 
         if (enable)
         {
-            StopCoroutine(ToggleLight(3, true));
-            StartCoroutine(ToggleLight(3, true));
+            ToggleLight(3, true);
+            ToggleLight(3, true);
         }
         else if (!enable)
         {
-            StopCoroutine(ToggleLight(0, false));
-            StartCoroutine(ToggleLight(0, false));
+            ToggleLight(0, false);
+            ToggleLight(0, false);
         }
     }
 
-    public IEnumerator ToggleLight(float intensity, bool lightState)
+    public void ToggleLight(float intensity, bool lightState)
     {
         if (lightState)
         {
-            while (mat.GetColor("_EmissionColor").r < 1.5f)
-            {
-                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(Time.deltaTime, Time.deltaTime, Time.deltaTime) * 10);
+            mat.color = Color.green;
+            mat.SetColor("_EmissionColor", Color.green * 7);
+            /* while (mat.GetColor("_EmissionColor").g < 1.5f)
+             {
+                 mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(0, Time.deltaTime, 0) * 10);
 
-                if (!isEnabled)
-                {
-                    StartCoroutine(ToggleLight(0, false));
-                    break;
-                }
+                 if (!isEnabled)
+                 {
+                     StartCoroutine(ToggleLight(0, false));
+                     break;
+                 }
 
-                yield return false;
-            }
+                 yield return false;
+             }
+             */
         }
         else
         {
-            while (mat.GetColor("_EmissionColor").r > 0)
+            mat.color = Color.red;
+            mat.SetColor("_EmissionColor", Color.red * 7);
+            /*
+            while (mat.GetColor("_EmissionColor").g > 0)
             {
-                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") - new Color(Time.deltaTime, Time.deltaTime, Time.deltaTime) * 10);
+                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") - new Color(0, Time.deltaTime, 0) * 10);
 
                 if (isEnabled)
                 {
@@ -74,9 +81,8 @@ public class Button : Objective
 
                 yield return false;
             }
+            */
         }
-
-        yield return false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,7 +90,7 @@ public class Button : Objective
         if (other.tag == "Player")
         {
             player = other.gameObject;
-            DisplayText();
+            DisplayText(gameObject, "E", Vector3.up / 3, 0);
             isInTrigger = true;
         }
     }
@@ -103,15 +109,16 @@ public class Button : Objective
         currentText.transform.GetChild(0).GetComponent<PopUpText>().OnClick();
         PlayerPopUpText interactClass = player.GetComponent<PlayerPopUpText>();
 
-        anim.Play("button_press");
 
         if (isEnabled)
         {
+            anim.Play("lever_pull");
             isCompleted = true;
             roomController.GetComponent<RoomController>().CheckObjectiveCompleted();
         }
         else
         {
+            anim.Play("lever_pull_fake");
             interactClass.Think(interactClass.buttonDisabled);
         }
     }

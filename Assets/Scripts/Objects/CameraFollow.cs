@@ -7,6 +7,10 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     public GameObject camPos;
     Vector3 referV = Vector3.zero;
+    Vector3 lastMousePos;
+
+    [SerializeField]
+    float lookSpeed;
 
     private void Update()
     {
@@ -16,7 +20,20 @@ public class CameraFollow : MonoBehaviour
     void FollowPlayer()
     {
         //transform.parent är för smooth kamera, så kan den vara smooth fast det är camera shake
-        transform.parent.position = Vector3.SmoothDamp(transform.position, camPos.transform.position, ref referV, 0.6f);
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            Vector3 horizontalMoveDir = lastMousePos - Input.mousePosition;
+            Vector3 verticalMoveDir = lastMousePos - Input.mousePosition;
+
+            transform.parent.position += new Vector3(horizontalMoveDir.x * 0.3f, 0, horizontalMoveDir.y * 0.3f) * -lookSpeed;
+
+            lastMousePos = Input.mousePosition;
+        }
+        else
+        {
+            transform.parent.position = Vector3.SmoothDamp(transform.position, camPos.transform.position, ref referV, 0.6f);
+            lastMousePos = Input.mousePosition;
+        }
     }
 
     float timePassed;
