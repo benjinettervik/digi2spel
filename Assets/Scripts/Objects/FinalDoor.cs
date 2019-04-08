@@ -18,6 +18,6 @@ public class FinalDoor : Objective
 
     private void OnTriggerEnter(Collider other)
     {
-        playerInteract.Think("hmm... four key holes?");
+        playerInteract.Think("hmm... four key holes?", 0, 0);
     }
 }

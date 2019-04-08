@@ -4,74 +4,52 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public float damage;
-    public GameObject sword;
-    Animator swordAnim;
-    Collider swordCollider;
-
-    bool isInTrigger;
-    bool isActive;
+    Animator anim;
+    bool firstHit;
+    bool secondHit;
 
     private void Start()
     {
-        swordCollider = GetComponent<Collider>();
-        swordAnim = transform.parent.GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        //AttackOnClick();
-
-        print(isInTrigger);
-
-        if (Input.GetKeyDown(KeyCode.Space) && isInTrigger && !(enemy == null))
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(damage);
+            StartCoroutine(DoAttack());
         }
     }
 
-    GameObject enemy;
-    private void OnTriggerEnter(Collider other)
+    float timeSinceStart;
+    bool isAttacking;
+
+    IEnumerator DoAttack()
     {
-        if (other.tag == "Enemy")
+        isAttacking = true;
+        timeSinceStart = 0;
+
+        print("attacking");
+        anim.SetTrigger("Attack1");
+
+        while (timeSinceStart < 0.6f)
         {
-            Debug.Log("yes", gameObject);
-            isInTrigger = true;
-            //detta fixas när vi har slag-animation
-            /*if (isActive)
+            timeSinceStart += Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                print("hit " + other.name);
-                other.GetComponent<Enemy>().TakeDamage(damage);
-                isActive = false;
+                if (timeSinceStart > 0.1f && timeSinceStart < 0.6f)
+                {
+                    print("combo");
+                    anim.SetTrigger("Attack2");
+                }
             }
-            */
-            enemy = other.gameObject;
+
+            yield return false;
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        isInTrigger = false;
-        enemy = null;
-    }
-
-    Coroutine swordAttack;
-    void AttackOnClick()
-    {
-        if (Input.GetButtonDown("Fire1") && animationFinished)
-        {
-            swordAttack = StartCoroutine(SetSwordActive());
-            swordAnim.Play("Swordplaceholder");
-        }
-    }
-
-    bool animationFinished = true;
-    IEnumerator SetSwordActive()
-    {
-        animationFinished = false;
-        isActive = true;
-        yield return new WaitForSeconds(0.7f);
-        animationFinished = true;
-        isActive = false;
+        anim.ResetTrigger("Attack1");
+        anim.ResetTrigger("Attack2");
+        isAttacking = false;
     }
 }

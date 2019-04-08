@@ -18,9 +18,13 @@ public class movement : MonoBehaviour
     [SerializeField]
     int invertDir = 1;
 
+    Animator anim;
+
     float timeSinceStep;
     [SerializeField]
     float stepFrequency = 0.3f;
+
+    public bool isMoving;
 
     float currentMovingSpeed;
 
@@ -28,6 +32,7 @@ public class movement : MonoBehaviour
     {
         lastPos = transform.position;
 
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cc = GetComponent<CharacterController>();
         playerSounds = transform.Find("Sounds").GetComponent<PlayerSounds>();
@@ -38,9 +43,11 @@ public class movement : MonoBehaviour
     private void Update()
     {
         currentMovingSpeed = (lastPos - transform.position).magnitude;
+        isMoving = CheckIfMoving();
 
         Gravity();
         PlayStep();
+        SetAnimation();
 
         xMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed * invertDir;
         yMovement -= Input.GetAxisRaw("Horizontal") * Time.deltaTime * accelerationSpeed * invertDir;
@@ -73,7 +80,7 @@ public class movement : MonoBehaviour
 
     void PlayStep()
     {
-        if (CheckIfMoving())
+        if (isMoving)
         {
             timeSinceStep += Time.deltaTime;
             if (timeSinceStep > stepFrequency)
@@ -86,6 +93,18 @@ public class movement : MonoBehaviour
             timeSinceStep = 0;
     }
 
+    void SetAnimation()
+    {
+        if (isMoving)
+        {
+            print("is moving");
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+    }
 
     bool CheckIfMoving()
     {

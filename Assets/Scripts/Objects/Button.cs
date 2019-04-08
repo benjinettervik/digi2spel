@@ -49,7 +49,7 @@ public class Button : Objective
         {
             mat.color = Color.green;
             mat.SetColor("_EmissionColor", Color.green * 7);
-            /* while (mat.GetColor("_EmissionColor").g < 1.5f)
+            /* while (mat.GetColor("_EmissionColor").g < 1th.5f)
              {
                  mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(0, Time.deltaTime, 0) * 10);
 
@@ -116,7 +116,7 @@ public class Button : Objective
         else
         {
             anim.Play("lever_pull_fake");
-            playerInteract.Think(playerInteract.buttonDisabled);
+            playerInteract.Think(playerInteract.buttonDisabled, 120, 0);
         }
     }
 }

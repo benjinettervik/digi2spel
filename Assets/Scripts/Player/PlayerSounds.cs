@@ -14,16 +14,12 @@ public class PlayerSounds : MonoBehaviour
     private void Start()
     {
         audioSources = GetComponents<AudioSource>();
-    }
-
-    float timesincestep;
-    private void Update()
-    {
-
+        audioSources[0].clip = step1;
     }
 
     public void PlayStep()
     {
+        print("playing step");
         audioSources[0].Play();
     }
 }
