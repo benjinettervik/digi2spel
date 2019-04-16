@@ -19,6 +19,8 @@ public class Objective : MonoBehaviour
     public GameObject popUpText;
     [HideInInspector]
     public GameObject currentText;
+
+    [HideInInspector]
     public GameObject player;
 
     [HideInInspector]

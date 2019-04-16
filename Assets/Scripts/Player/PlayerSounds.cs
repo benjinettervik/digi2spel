@@ -19,7 +19,6 @@ public class PlayerSounds : MonoBehaviour
 
     public void PlayStep()
     {
-        print("playing step");
         audioSources[0].Play();
     }
 }

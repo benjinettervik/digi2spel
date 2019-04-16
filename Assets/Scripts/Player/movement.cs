@@ -42,11 +42,12 @@ public class movement : MonoBehaviour
     float yMovement;
     private void Update()
     {
+        anim.SetFloat("TimeScale", Time.timeScale);
+
         currentMovingSpeed = (lastPos - transform.position).magnitude;
         isMoving = CheckIfMoving();
 
         Gravity();
-        PlayStep();
         SetAnimation();
 
         xMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed * invertDir;
@@ -78,19 +79,15 @@ public class movement : MonoBehaviour
         }
     }
 
-    void PlayStep()
+    public void Footstep1()
     {
-        if (isMoving)
-        {
-            timeSinceStep += Time.deltaTime;
-            if (timeSinceStep > stepFrequency)
-            {
-                playerSounds.PlayStep();
-                timeSinceStep = 0;
-            }
-        }
-        else
-            timeSinceStep = 0;
+        print("step");
+        playerSounds.PlayStep();
+    }
+
+    public void Footstep2()
+    {
+        playerSounds.PlayStep();
     }
 
     void SetAnimation()

@@ -147,6 +147,7 @@ ModelImporter:
     7400006: Hit2
     9500000: //RootNode
     13700000: Knight
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -162,7 +163,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event Hit1Finished has a time (0.208333) outside the
+      clip's valid range (-0.002201..0.208333). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -198,7 +200,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.07505652
+        functionName: Footstep1
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 5ddf24d7da853204e920f04a69485ceb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5987842
+        functionName: Footstep2
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 5ddf24d7da853204e920f04a69485ceb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -253,8 +271,92 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
+      curves:
+      - name: HitSpeedCurve
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: -0.010566711
+            value: 1.6690292
+            inSlope: 0.50228274
+            outSlope: 0.50228274
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 1
+          - serializedVersion: 3
+            time: 0.41952184
+            value: 1.6998113
+            inSlope: -0.011747256
+            outSlope: -0.011747256
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.51871705
+            value: 0.97780013
+            inSlope: -0.04957793
+            outSlope: -0.04957793
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.63344187
+            value: 0.24412298
+            inSlope: -1.6646489
+            outSlope: -1.6646489
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9237976
+            value: 0.060321808
+            inSlope: -0.53828526
+            outSlope: -0.53828526
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 1
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      events:
+      - time: 0.68541044
+        functionName: Hit1CanDamage
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.7777778
+        functionName: CanDoHit2
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.956229
+        functionName: CanNotDoHit2
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 1
+        functionName: Hit1Finished
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -281,8 +383,58 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
+      curves:
+      - name: Hit2SpeedCurve
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0.010837123
+            value: 1.2550191
+            inSlope: -0.039608635
+            outSlope: -0.039608635
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.60398173
+            value: 1.2315254
+            inSlope: -0.1175707
+            outSlope: -0.1175707
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.95355797
+            outWeight: 1
+          - serializedVersion: 3
+            time: 0.94963074
+            value: 0.5049629
+            inSlope: -1.0075485
+            outSlope: -1.0075485
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.28424948
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      events:
+      - time: 1
+        functionName: Hit2Finished
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.70668703
+        functionName: Hit2CanDamage
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

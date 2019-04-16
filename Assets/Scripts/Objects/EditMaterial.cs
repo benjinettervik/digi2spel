@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EditMaterial : MonoBehaviour
 {
+    [HideInInspector]
     public Material objectMaterial;
     
     public List<Material> materials = new List<Material>();

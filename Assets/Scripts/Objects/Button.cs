@@ -49,38 +49,11 @@ public class Button : Objective
         {
             mat.color = Color.green;
             mat.SetColor("_EmissionColor", Color.green * 7);
-            /* while (mat.GetColor("_EmissionColor").g < 1th.5f)
-             {
-                 mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(0, Time.deltaTime, 0) * 10);
-
-                 if (!isEnabled)
-                 {
-                     StartCoroutine(ToggleLight(0, false));
-                     break;
-                 }
-
-                 yield return false;
-             }
-             */
         }
         else
         {
             mat.color = Color.red;
             mat.SetColor("_EmissionColor", Color.red * 7);
-            /*
-            while (mat.GetColor("_EmissionColor").g > 0)
-            {
-                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") - new Color(0, Time.deltaTime, 0) * 10);
-
-                if (isEnabled)
-                {
-                    StartCoroutine(ToggleLight(0, true));
-                    break;
-                }
-
-                yield return false;
-            }
-            */
         }
     }
 
