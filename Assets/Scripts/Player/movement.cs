@@ -18,9 +18,13 @@ public class movement : MonoBehaviour
     [SerializeField]
     int invertDir = 1;
 
+    Animator anim;
+
     float timeSinceStep;
     [SerializeField]
     float stepFrequency = 0.3f;
+
+    public bool isMoving;
 
     float currentMovingSpeed;
 
@@ -28,6 +32,7 @@ public class movement : MonoBehaviour
     {
         lastPos = transform.position;
 
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cc = GetComponent<CharacterController>();
         playerSounds = transform.Find("Sounds").GetComponent<PlayerSounds>();
@@ -37,10 +42,13 @@ public class movement : MonoBehaviour
     float yMovement;
     private void Update()
     {
+        anim.SetFloat("TimeScale", Time.timeScale);
+
         currentMovingSpeed = (lastPos - transform.position).magnitude;
+        isMoving = CheckIfMoving();
 
         Gravity();
-        PlayStep();
+        SetAnimation();
 
         xMovement += Input.GetAxisRaw("Vertical") * Time.deltaTime * accelerationSpeed * invertDir;
         yMovement -= Input.GetAxisRaw("Horizontal") * Time.deltaTime * accelerationSpeed * invertDir;
@@ -71,21 +79,29 @@ public class movement : MonoBehaviour
         }
     }
 
-    void PlayStep()
+    public void Footstep1()
     {
-        if (CheckIfMoving())
-        {
-            timeSinceStep += Time.deltaTime;
-            if (timeSinceStep > stepFrequency)
-            {
-                playerSounds.PlayStep();
-                timeSinceStep = 0;
-            }
-        }
-        else
-            timeSinceStep = 0;
+        print("step");
+        playerSounds.PlayStep();
     }
 
+    public void Footstep2()
+    {
+        playerSounds.PlayStep();
+    }
+
+    void SetAnimation()
+    {
+        if (isMoving)
+        {
+            print("is moving");
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+    }
 
     bool CheckIfMoving()
     {

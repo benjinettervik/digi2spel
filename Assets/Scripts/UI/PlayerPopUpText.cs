@@ -23,20 +23,12 @@ public class PlayerPopUpText : MonoBehaviour
             outline = textObject.GetComponent<Outline>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Think(buttonDisabled);
-        }
-    }
-
-    public void Think(string _text)
+    public void Think(string _text, float _xOffset, float _yOffset)
     {
         StopAllCoroutines();
         textObject.color = Color.white;
-        outline.effectColor = Color.black;
-        SetTextAreaWidth(_text, 100, 30);
+        //outline.effectColor = Color.black;
+        SetTextAreaWidth(_text, _xOffset, _yOffset);
         textObject.text = "";
         StartCoroutine(DisplayTextGradually(_text));
         textObject.gameObject.SetActive(true);
@@ -57,7 +49,7 @@ public class PlayerPopUpText : MonoBehaviour
         while (textObject.color.a > 0)
         {
             textObject.color -= new Color(0, 0, 0, Time.deltaTime * 2);
-            outline.effectColor -= new Color(0, 0, 0, Time.deltaTime * 2);
+            //outline.effectColor -= new Color(0, 0, 0, Time.deltaTime * 2);
             yield return false;
         }
         textObject.gameObject.SetActive(false);

@@ -6,7 +6,6 @@ public class Button : Objective
 {
     public bool isEnabled;
     Animator anim;
-    GameObject player;
     Material mat;
 
     public override void Start()
@@ -50,38 +49,11 @@ public class Button : Objective
         {
             mat.color = Color.green;
             mat.SetColor("_EmissionColor", Color.green * 7);
-            /* while (mat.GetColor("_EmissionColor").g < 1.5f)
-             {
-                 mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") + new Color(0, Time.deltaTime, 0) * 10);
-
-                 if (!isEnabled)
-                 {
-                     StartCoroutine(ToggleLight(0, false));
-                     break;
-                 }
-
-                 yield return false;
-             }
-             */
         }
         else
         {
             mat.color = Color.red;
             mat.SetColor("_EmissionColor", Color.red * 7);
-            /*
-            while (mat.GetColor("_EmissionColor").g > 0)
-            {
-                mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") - new Color(0, Time.deltaTime, 0) * 10);
-
-                if (isEnabled)
-                {
-                    StartCoroutine(ToggleLight(0, true));
-                    break;
-                }
-
-                yield return false;
-            }
-            */
         }
     }
 
@@ -107,8 +79,6 @@ public class Button : Objective
     void OnClick()
     {
         currentText.transform.GetChild(0).GetComponent<PopUpText>().OnClick();
-        PlayerPopUpText interactClass = player.GetComponent<PlayerPopUpText>();
-
 
         if (isEnabled)
         {
@@ -119,7 +89,7 @@ public class Button : Objective
         else
         {
             anim.Play("lever_pull_fake");
-            interactClass.Think(interactClass.buttonDisabled);
+            playerInteract.Think(playerInteract.buttonDisabled, 120, 0);
         }
     }
 }

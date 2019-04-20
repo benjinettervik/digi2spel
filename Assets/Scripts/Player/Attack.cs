@@ -4,73 +4,153 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    Animator anim;
+    bool firstHit;
+    bool secondHit;
+    bool hit1finished;
+    bool hit2finished;
+    float defaultHitSpeed;
+    float curveValue;
     public float damage;
-    public GameObject sword;
-    Animator swordAnim;
-    Collider swordCollider;
 
-    bool isInTrigger;
-    bool isActive;
+    public GameObject sword;
 
     private void Start()
     {
-        swordCollider = sword.GetComponent<Collider>();
-        swordAnim = sword.transform.parent.GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+        defaultHitSpeed = anim.GetFloat("HitSpeed");
     }
 
     private void Update()
     {
-        //AttackOnClick();
-
-        if (Input.GetKeyDown(KeyCode.Space) && isInTrigger)
+        if (Input.GetButtonDown("Fire1") && !isAttacking)
         {
-            print("=????");
-            enemy.GetComponent<Enemy>().TakeDamage(damage);
+            StartCoroutine(DoAttack1());
+        }
+
+        curveValue = anim.GetFloat("HitSpeedCurve");
+
+        if (anim.GetCurrentAnimatorStateInfo(1).IsName("Idle"))
+        {
+            isAttacking = false;
         }
     }
 
-    GameObject enemy;
-    private void OnTriggerEnter(Collider other)
+    float timeSinceStart;
+    public bool isAttacking;
+
+    IEnumerator DoAttack1()
     {
-        if (other.tag == "Enemy")
+        hit1finished = false;
+        hit1candamage = true;
+        timeSinceStart = 0;
+        canDoHit2 = false;
+        bool hasHit = false;
+
+        anim.SetTrigger("Attack1");
+
+        while (!hit1finished)
         {
-            isInTrigger = true;
-            //detta fixas när vi har slag-animation
-            /*if (isActive)
+            print("is in loop 1");
+            isAttacking = true;
+
+            CheckSwordCollider swordColl = sword.GetComponent<CheckSwordCollider>();
+            if (swordColl.hasHitEnemy && !hasHit && swordColl.enemy != null && hit1candamage)
             {
-                print("hit " + other.name);
-                other.GetComponent<Enemy>().TakeDamage(damage);
-                isActive = false;
+                swordColl.enemy.GetComponent<Enemy>().TakeDamage(damage);
+                print("hit with hit 1");
+                hasHit = true;
             }
-            */
-            enemy = other.gameObject;
 
-            
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (canDoHit2)
+                {
+                    StartCoroutine(DoAttack2());
+                    yield break;
+                }
+            }
+
+            yield return false;
         }
+
+        anim.ResetTrigger("Attack1");
+        anim.ResetTrigger("Attack2");
+
+        isAttacking = false;
     }
 
-    private void OnTriggerExit(Collider other)
+    IEnumerator DoAttack2()
     {
-        isInTrigger = false;
-    }
+        canDoHit2 = false;
+        anim.SetTrigger("Attack2");
+        hit2candamage = false;
+        bool hasHit = false;
+        hit2finished = false;
 
-    Coroutine swordAttack;
-    void AttackOnClick()
-    {
-        if (Input.GetButtonDown("Fire1") && animationFinished)
+        float timeSinceStart = 0;
+
+        while (!hit2finished)
         {
-            swordAttack = StartCoroutine(SetSwordActive());
-            swordAnim.Play("Swordplaceholder");
+            print("is in loop 2");
+
+            timeSinceStart += Time.unscaledDeltaTime;
+            isAttacking = true;
+
+            CheckSwordCollider swordColl = sword.GetComponent<CheckSwordCollider>();
+            if (swordColl.hasHitEnemy && !hasHit && swordColl.enemy != null && hit2candamage)
+            {
+                swordColl.enemy.GetComponent<Enemy>().TakeDamage(damage);
+                print("hit with hit 2");
+                hasHit = true;
+            }
+
+            yield return false;
         }
+
+        anim.ResetTrigger("Attack2");
+        isAttacking = false;
     }
 
-    bool animationFinished = true;
-    IEnumerator SetSwordActive()
+    public void Hit1Finished()
     {
-        animationFinished = false;
-        isActive = true;
-        yield return new WaitForSeconds(0.7f);
-        animationFinished = true;
-        isActive = false;
+        hit1finished = true;
+    }
+
+    public void Hit2Finished()
+    {
+        print("hit 2 finish");
+        hit2finished = true;
+    }
+
+    [SerializeField]
+    bool hit1candamage;
+    public void Hit1CanNotDamage()
+    {
+        hit1candamage = false;
+    }
+
+    [SerializeField]
+    bool hit2candamage;
+    public void Hit2CanDamage()
+    {
+        hit2candamage = true;
+    }
+
+    public void Hit2CanNotDamage()
+    {
+        hit2candamage = false;
+    }
+
+    [SerializeField]
+    bool canDoHit2;
+    public void CanDoHit2()
+    {
+        canDoHit2 = true;
+    }
+
+    public void CanNotDoHit2()
+    {
+        canDoHit2 = false;
     }
 }

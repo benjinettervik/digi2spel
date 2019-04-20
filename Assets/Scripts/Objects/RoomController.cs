@@ -6,7 +6,9 @@ public class RoomController : MonoBehaviour
 {
     bool roomCompleted;
 
+    [Header("Alla objekt i rummet")]
     public List<GameObject> objectives;
+    [Header("Sista saken som händer i rummet, t.ex. dörren öppnas")]
     public GameObject objectiveToToggle;
     public List<GameObject> enemies;
 
