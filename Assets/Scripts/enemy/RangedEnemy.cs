@@ -144,7 +144,6 @@ public class RangedEnemy : Enemy
             if (timeSinceLastAttack > 3f)
             {
                 //anim.SetTrigger("AttackPlayer");
-                print("attacking");
                 var projectile = Instantiate(projectileObj, barrelPos.transform.position, transform.rotation);
                 timeSinceLastAttack = 0;
             }

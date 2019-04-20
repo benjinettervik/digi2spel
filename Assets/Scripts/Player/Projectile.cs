@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("hitting");
         if (other.tag == "Player")
         {
             print("hitting palyer");

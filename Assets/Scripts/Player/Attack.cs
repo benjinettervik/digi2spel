@@ -29,6 +29,11 @@ public class Attack : MonoBehaviour
         }
 
         curveValue = anim.GetFloat("HitSpeedCurve");
+
+        if (anim.GetCurrentAnimatorStateInfo(1).IsName("Idle"))
+        {
+            isAttacking = false;
+        }
     }
 
     float timeSinceStart;
@@ -46,12 +51,14 @@ public class Attack : MonoBehaviour
 
         while (!hit1finished)
         {
+            print("is in loop 1");
             isAttacking = true;
 
             CheckSwordCollider swordColl = sword.GetComponent<CheckSwordCollider>();
             if (swordColl.hasHitEnemy && !hasHit && swordColl.enemy != null && hit1candamage)
             {
                 swordColl.enemy.GetComponent<Enemy>().TakeDamage(damage);
+                print("hit with hit 1");
                 hasHit = true;
             }
 
@@ -77,50 +84,65 @@ public class Attack : MonoBehaviour
     {
         canDoHit2 = false;
         anim.SetTrigger("Attack2");
-        hit2candamage = true;
+        hit2candamage = false;
         bool hasHit = false;
+        hit2finished = false;
+
+        float timeSinceStart = 0;
 
         while (!hit2finished)
         {
+            print("is in loop 2");
+
+            timeSinceStart += Time.unscaledDeltaTime;
             isAttacking = true;
 
             CheckSwordCollider swordColl = sword.GetComponent<CheckSwordCollider>();
             if (swordColl.hasHitEnemy && !hasHit && swordColl.enemy != null && hit2candamage)
             {
                 swordColl.enemy.GetComponent<Enemy>().TakeDamage(damage);
+                print("hit with hit 2");
                 hasHit = true;
             }
 
             yield return false;
         }
 
-        print("hit 2 finished");
+        anim.ResetTrigger("Attack2");
         isAttacking = false;
     }
 
     public void Hit1Finished()
     {
-        print("animation has finished");
         hit1finished = true;
     }
 
     public void Hit2Finished()
     {
+        print("hit 2 finish");
         hit2finished = true;
     }
 
+    [SerializeField]
     bool hit1candamage;
-    public void Hit1CanDamage()
+    public void Hit1CanNotDamage()
     {
         hit1candamage = false;
     }
 
+    [SerializeField]
     bool hit2candamage;
     public void Hit2CanDamage()
+    {
+        hit2candamage = true;
+    }
+
+    public void Hit2CanNotDamage()
     {
         hit2candamage = false;
     }
 
+    [SerializeField]
     bool canDoHit2;
     public void CanDoHit2()
     {
@@ -130,10 +152,5 @@ public class Attack : MonoBehaviour
     public void CanNotDoHit2()
     {
         canDoHit2 = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
     }
 }

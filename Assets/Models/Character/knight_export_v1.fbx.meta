@@ -164,7 +164,7 @@ ModelImporter:
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: Event Hit1Finished has a time (0.208333) outside the
-      clip's valid range (-0.002201..0.208333). It will never be fired
+      clip's valid range (0.000000..0.208333). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -277,8 +277,8 @@ ModelImporter:
           serializedVersion: 2
           curve:
           - serializedVersion: 3
-            time: -0.010566711
-            value: 1.6690292
+            time: 0.023083188
+            value: 2.2266114
             inSlope: 0.50228274
             outSlope: 0.50228274
             tangentMode: 0
@@ -286,8 +286,8 @@ ModelImporter:
             inWeight: 0
             outWeight: 1
           - serializedVersion: 3
-            time: 0.41952184
-            value: 1.6998113
+            time: 0.4025083
+            value: 2.120954
             inSlope: -0.011747256
             outSlope: -0.011747256
             tangentMode: 0
@@ -326,7 +326,7 @@ ModelImporter:
           rotationOrder: 4
       events:
       - time: 0.68541044
-        functionName: Hit1CanDamage
+        functionName: Hit1CanNotDamage
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
           type: 3}
@@ -341,7 +341,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.956229
+      - time: 0.8826504
         functionName: CanNotDoHit2
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
@@ -389,22 +389,31 @@ ModelImporter:
           serializedVersion: 2
           curve:
           - serializedVersion: 3
-            time: 0.010837123
-            value: 1.2550191
-            inSlope: -0.039608635
-            outSlope: -0.039608635
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.60398173
-            value: 1.2315254
-            inSlope: -0.1175707
-            outSlope: -0.1175707
+            time: 0.030891314
+            value: 1.9619144
+            inSlope: 0.2779053
+            outSlope: 0.2779053
             tangentMode: 0
             weightedMode: 0
-            inWeight: 0.95355797
+            inWeight: 0
+            outWeight: 0.8035526
+          - serializedVersion: 3
+            time: 0.48496264
+            value: 1.8484635
+            inSlope: -0.7767597
+            outSlope: -0.7767597
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.61016154
+            value: 1.2463417
+            inSlope: -2.8298385
+            outSlope: -2.8298385
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 1
             outWeight: 1
           - serializedVersion: 3
             time: 0.94963074
@@ -419,8 +428,8 @@ ModelImporter:
           postInfinity: 2
           rotationOrder: 4
       events:
-      - time: 1
-        functionName: Hit2Finished
+      - time: 0.16835018
+        functionName: Hit2CanDamage
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
           type: 3}
@@ -428,7 +437,15 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.70668703
-        functionName: Hit2CanDamage
+        functionName: Hit2CanNotDamage
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: Hit2Finished
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: efba7c09e87fb3f499e34f30d6ea98cb,
           type: 3}
