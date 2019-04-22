@@ -81,13 +81,14 @@ public class movement : MonoBehaviour
 
     public void Footstep1()
     {
-        print("step");
-        playerSounds.PlayStep();
+        if (isMoving)
+            playerSounds.PlayStep();
     }
 
     public void Footstep2()
     {
-        playerSounds.PlayStep();
+        if (isMoving)
+            playerSounds.PlayStep();
     }
 
     void SetAnimation()
@@ -97,7 +98,7 @@ public class movement : MonoBehaviour
             print("is moving");
             anim.SetBool("isRunning", true);
         }
-        else
+        else if (Time.timeScale != 0)
         {
             anim.SetBool("isRunning", false);
         }
@@ -113,5 +114,13 @@ public class movement : MonoBehaviour
 
         lastPos = transform.position;
         return false;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.tag == "ObjectBlock")
+        {
+            Physics.IgnoreCollision(cc, hit.collider, true);
+        }
     }
 }

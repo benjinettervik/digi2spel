@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxhealth;
-        editMaterial = GetComponent<EditMaterial>();
+        editMaterial = transform.Find("Knight").GetComponent<EditMaterial>();
     }
 
     public void TakeDamage(float dmg)

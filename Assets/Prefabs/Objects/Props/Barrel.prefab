@@ -22,6 +22,10 @@ GameObject:
   - component: {fileID: 33427602666549028}
   - component: {fileID: 23652458890678922}
   - component: {fileID: 54487158037428166}
+  - component: {fileID: 64753607537500330}
+  - component: {fileID: 65007328026827942}
+  - component: {fileID: 114219487305308912}
+  - component: {fileID: 208723167330477076}
   m_Layer: 16
   m_Name: Barrel
   m_TagString: Barrel
@@ -36,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1994242991666528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5418115, y: 0.083, z: -11.741687}
+  m_LocalPosition: {x: -7.5418115, y: 0.119999886, z: -11.741687}
   m_LocalScale: {x: 0.71873724, y: 0.9031652, z: 0.71873724}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,3 +103,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!64 &64753607537500330
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994242991666528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 6ff119e8e2dd5c24aab84b1e8599b5b7, type: 3}
+--- !u!65 &65007328026827942
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994242991666528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.56143, y: 1.1492918, z: 1.5614277}
+  m_Center: {x: -0.00007596358, y: 0.053833406, z: 0.00044898124}
+--- !u!114 &114219487305308912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994242991666528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!208 &208723167330477076
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994242991666528}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.781, y: 0.628, z: 0.781}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

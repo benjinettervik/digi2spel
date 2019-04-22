@@ -12,6 +12,8 @@ public class RangedEnemy : Enemy
     NavMeshPath path;
     Vector3 closestWalkablePos;
     Vector3 positionToMoveTo;
+    Vector3 moveDir;
+    Vector3 lastPath;
     NavMeshHit hit;
     float timeSinceCalc;
     float timeSinceLastAttack;
@@ -33,17 +35,16 @@ public class RangedEnemy : Enemy
     {
         SetupHealthBar();
 
+        //desigPos.position = new Vector3(desigPos.position.x, transform.position.y, desigPos.position.z);
+
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void FixedUpdate()
+    public override void Update()
     {
-        SpotPlayer();
-    }
+        base.Update();
 
-    private void Update()
-    {
         SetWalkingPosition();
         AttackPlayer();
 
@@ -52,7 +53,7 @@ public class RangedEnemy : Enemy
             SetPath();
         }
 
-        if (!moveTest)
+        if (!dontMove)
         {
             MoveTowardsPlayer();
         }
@@ -74,23 +75,26 @@ public class RangedEnemy : Enemy
             if (path.corners.Length > 1)
             {
                 isMoving = true;
-                Vector3 moveDir = (path.corners[1] - transform.position).normalized;
+
+                if (path.corners[1] != lastPath)
+                    moveDir = (path.corners[1] - transform.position).normalized;
+
+                lastPath = path.corners[1];
+
+                Debug.DrawLine(transform.position, transform.position + moveDir);
+
                 moveDir.y = 0;
+
                 if (Vector3.Distance(transform.position, player.transform.position) > engagementDistance)
-                {
                     transform.position += moveDir * Time.deltaTime * speed;
-                }
+
                 else
-                {
                     isMoving = false;
-                }
-                Debug.DrawLine(transform.position + Vector3.up, (transform.position + Vector3.up) + moveDir * 5);
             }
 
             else
-            {
                 isMoving = false;
-            }
+
         }
     }
 
@@ -160,9 +164,9 @@ public class RangedEnemy : Enemy
 
     void SetWalkingPosition()
     {
-        if (moveToDesigPos)
+        if (dontMove)
         {
-            positionToMoveTo = desigPos.position;
+            //positionToMoveTo = desigPos.position;
         }
         else
         {

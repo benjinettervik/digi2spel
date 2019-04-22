@@ -51,7 +51,6 @@ public class Attack : MonoBehaviour
 
         while (!hit1finished)
         {
-            print("is in loop 1");
             isAttacking = true;
 
             CheckSwordCollider swordColl = sword.GetComponent<CheckSwordCollider>();
@@ -92,8 +91,6 @@ public class Attack : MonoBehaviour
 
         while (!hit2finished)
         {
-            print("is in loop 2");
-
             timeSinceStart += Time.unscaledDeltaTime;
             isAttacking = true;
 
@@ -101,7 +98,6 @@ public class Attack : MonoBehaviour
             if (swordColl.hasHitEnemy && !hasHit && swordColl.enemy != null && hit2candamage)
             {
                 swordColl.enemy.GetComponent<Enemy>().TakeDamage(damage);
-                print("hit with hit 2");
                 hasHit = true;
             }
 
@@ -119,7 +115,6 @@ public class Attack : MonoBehaviour
 
     public void Hit2Finished()
     {
-        print("hit 2 finish");
         hit2finished = true;
     }
 

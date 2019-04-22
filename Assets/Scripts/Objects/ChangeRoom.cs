@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeRoom : MonoBehaviour
 {
-    //Denna ska endas assignas om det är ett rum spelaren spawnar i
+    //Denna ska endas tickas om det är ett rum spelaren spawnar i
     public bool isStartingRoom;
 
     public GameObject roomToDisable;
@@ -15,14 +15,6 @@ public class ChangeRoom : MonoBehaviour
     private void Start()
     {
         if (!isStartingRoom)
-        {
-            SetRoomCoversState(roomToEnable, false);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
         {
             SetRoomCoversState(roomToEnable, false);
         }
