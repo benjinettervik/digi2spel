@@ -6,11 +6,21 @@ public class EditMaterial : MonoBehaviour
 {
     [HideInInspector]
     public Material objectMaterial;
-    
+
     public List<Material> materials = new List<Material>();
+
+    [Header("Bug Fix")]
+    public bool isQuad;
 
     private void Awake()
     {
+        //buggfix, kan se igenom av nån anledning om detta inte görs 
+        if (isQuad)
+        {
+            Material tempMat = GetComponent<MeshRenderer>().materials[0];
+            tempMat.color = Color.black;
+        }
+
         CreateMaterial();
     }
 

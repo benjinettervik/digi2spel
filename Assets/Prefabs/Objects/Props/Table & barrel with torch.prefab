@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1752004917968796
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,8 +217,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483012941521510}
   m_LocalRotation: {x: -0, y: 0.25369418, z: -0, w: 0.9672845}
-  m_LocalPosition: {x: -22.74, y: 1.151518, z: 1.75}
-  m_LocalScale: {x: 1.13478, y: 0.96239996, z: 1.02303}
+  m_LocalPosition: {x: -32.36, y: 1.151518, z: 5.49}
+  m_LocalScale: {x: 1.1347799, y: 0.96239996, z: 1.0230299}
   m_Children:
   - {fileID: 4939450535668956}
   - {fileID: 4907609295237856}
@@ -260,7 +260,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1083076479570470}
   m_LocalRotation: {x: -0, y: -0.23340939, z: -0, w: 0.9723786}
-  m_LocalPosition: {x: 3.1402, y: -1.599, z: 0.97087}
+  m_LocalPosition: {x: -1.1, y: -1.599, z: -1.68}
   m_LocalScale: {x: 277.18134, y: 12.21827, z: 156.01283}
   m_Children: []
   m_Father: {fileID: 4271778064288026}
@@ -312,7 +312,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458533088655866}
   m_LocalRotation: {x: 0.037888788, y: -0.25027475, z: 0.0098023685, w: 0.9673835}
-  m_LocalPosition: {x: 3.832602, y: -3.595174, z: 1.049112}
+  m_LocalPosition: {x: -0.41, y: -3.595174, z: -1.6}
   m_LocalScale: {x: 0.35132316, y: 0.40367493, z: 0.37133926}
   m_Children:
   - {fileID: 4652678411536692}
@@ -331,7 +331,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838888696632142}
   m_LocalRotation: {x: -0, y: -0.2334094, z: -0, w: 0.9723786}
-  m_LocalPosition: {x: 4.219, y: -2.12, z: 0.24}
+  m_LocalPosition: {x: -0.02, y: -2.12, z: -2.41}
   m_LocalScale: {x: 0.42155403, y: 0.48272926, z: 0.4215509}
   m_Children: []
   m_Father: {fileID: 4271778064288026}
@@ -344,7 +344,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752004917968796}
   m_LocalRotation: {x: -0, y: -0.23340939, z: -0, w: 0.9723786}
-  m_LocalPosition: {x: 3.241, y: -2.12, z: 2.408}
+  m_LocalPosition: {x: -1, y: -2.12, z: -0.24}
   m_LocalScale: {x: 0.4093022, y: 0.4695274, z: 0.4093022}
   m_Children: []
   m_Father: {fileID: 4271778064288026}
@@ -678,7 +678,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
