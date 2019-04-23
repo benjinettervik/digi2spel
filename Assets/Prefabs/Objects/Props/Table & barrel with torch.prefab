@@ -29,7 +29,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1195389475362452
 GameObject:
@@ -216,9 +216,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483012941521510}
-  m_LocalRotation: {x: -0, y: 0.25046664, z: -0, w: 0.9681252}
-  m_LocalPosition: {x: -2.36, y: 1.892, z: -6.45}
-  m_LocalScale: {x: 1.1347842, y: 0.9624012, z: 1.0230327}
+  m_LocalRotation: {x: -0, y: 0.25369418, z: -0, w: 0.9672845}
+  m_LocalPosition: {x: -22.74, y: 1.151518, z: 1.75}
+  m_LocalScale: {x: 1.13478, y: 0.96239996, z: 1.02303}
   m_Children:
   - {fileID: 4939450535668956}
   - {fileID: 4907609295237856}
@@ -226,7 +226,7 @@ Transform:
   - {fileID: 4883124380936866}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 29.010002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 29.392002, z: 0}
 --- !u!4 &4358042146606140
 Transform:
   m_ObjectHideFlags: 1
@@ -565,7 +565,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cc0ec2a3e25f7f24cb60c10b2af46409, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -658,9 +658,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0.6119033, b: 0, a: 1}
-  m_Intensity: 2.8
-  m_Range: 11
+  m_Color: {r: 1, g: 0.597088, b: 0, a: 1}
+  m_Intensity: 2.31
+  m_Range: 11.85
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:

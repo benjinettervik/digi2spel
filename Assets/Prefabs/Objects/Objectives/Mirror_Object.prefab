@@ -72,7 +72,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4343539440710974}
   - component: {fileID: 33856159158004350}
-  - component: {fileID: 64481787796297408}
   - component: {fileID: 114687117914493498}
   - component: {fileID: 23264311329142242}
   m_Layer: 0
@@ -168,8 +167,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937449760340306}
-  m_LocalRotation: {x: -0, y: -0.23775811, z: -0, w: 0.97132444}
-  m_LocalPosition: {x: -4.34, y: -0.47816145, z: -11.62}
+  m_LocalRotation: {x: -0, y: -0.8811166, z: -0, w: 0.472899}
+  m_LocalPosition: {x: -2.05, y: 0.00000011920929, z: 1.86}
   m_LocalScale: {x: 0.427504, y: 0.427504, z: 0.427504}
   m_Children:
   - {fileID: 4072991205316438}
@@ -177,7 +176,7 @@ Transform:
   - {fileID: 4045630273188252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -27.509, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -123.55501, z: 0}
 --- !u!4 &4117006016076536
 Transform:
   m_ObjectHideFlags: 1
@@ -422,20 +421,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &64481787796297408
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1593156111376100}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65046388914765608
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -554,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9d81cb413203c42b24fe6f09334337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notActualObjective: 0
+  notActualObjective: 1
   isCompleted: 0
   isInTrigger: 0
   roomController: {fileID: 0}
