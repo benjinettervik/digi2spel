@@ -9,7 +9,10 @@ public class Chest : Interactable
     GameObject cam;
     AudioSource audioSource;
     public GameObject objectToSpawn;
+    public GameObject objectInChest;
+    bool hasBeenInteracted;
 
+    public  AudioClip keyPickUpSound;
 
     private void Awake()
     {
@@ -22,20 +25,31 @@ public class Chest : Interactable
 
     public override void OnClick()
     {
-        anim.Play("ChestOpen");
+        if (!hasBeenInteracted)
+        {
+            anim.Play("ChestOpen");
 
-        audioSource.PlayDelayed(0.3f);
-        SpawnObject();
+            audioSource.PlayDelayed(0.3f);
+            SpawnObject();
 
-        //eftersom kistan expanderar när man öppnar den måste box collidern bli större
-        boxColl.center = new Vector3(boxColl.center.x, boxColl.center.y, -1.3f);
-        boxColl.size = new Vector3(boxColl.size.x, boxColl.size.y, 5);
+            //eftersom kistan expanderar när man öppnar den måste box collidern bli större
+            boxColl.center = new Vector3(boxColl.center.x, boxColl.center.y, -1.3f);
+            boxColl.size = new Vector3(boxColl.size.x, boxColl.size.y, 5);
+
+            hasBeenInteracted = true;
+        }
+        else
+        {
+            objectInChest.GetComponent<ChestItem>().PickUp();
+            audioSource.clip = keyPickUpSound;
+            audioSource.Play();
+        }
     }
 
     void SpawnObject()
     {
-        GameObject objectToSpawnSprite;
-        var objectToSpawnVar = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
+        //GameObject objectToSpawnSprite;
+        //var objectToSpawnVar = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
 
         /*
         objectToSpawnSprite = objectToSpawnVar.transform.Find("ObjectSprite").gameObject;

@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public void loadscene(string _sceneName)
+    public void LoadScene(string _sceneName)
     {
         GetComponent<FadeIn>().fadeImage.gameObject.SetActive(true);
         StartCoroutine(GetComponent<FadeIn>().FadeInImage(true));
         StartCoroutine(DelayLoadScene(_sceneName));
     }
 
-    public void quitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }

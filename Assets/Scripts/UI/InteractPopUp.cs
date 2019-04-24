@@ -8,11 +8,12 @@ public class InteractPopUp : MonoBehaviour
     GameObject currentText;
     GameObject parent;
 
-    //om objektet bara blir interactad med en gång
     bool hasBeenInteracted;
-    //denna checkar man i inspektorn
-    public bool oneTimeInteraction;
+    //hur många ggr man interagerar med objektet
+    public int interactionAmount;
     bool isInTrigger;
+
+    int timesInteracted;
 
     private void Start()
     {
@@ -28,12 +29,13 @@ public class InteractPopUp : MonoBehaviour
                 currentText.GetComponent<PopUpText>().OnClick();
                 parent.GetComponent<Interactable>().OnClick();
 
-                if (oneTimeInteraction)
-                {
-                    StartCoroutine(DestroyTextAfterTime());
-                }
+                timesInteracted++;
 
-                hasBeenInteracted = true;
+                if (interactionAmount == timesInteracted)
+                {
+                    StartCoroutine(DestroyTextAfterTime(0.1f));
+                    hasBeenInteracted = true;
+                }
             }
         }
     }
@@ -67,9 +69,9 @@ public class InteractPopUp : MonoBehaviour
     }
 
     //denna funktion är till om objektet bara interageras en gång, så förstörs texten efter feedback animationen
-    IEnumerator DestroyTextAfterTime()
+    IEnumerator DestroyTextAfterTime(float time)
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(time);
         if (currentText != null)
         {
             Destroy(currentText.transform.parent.gameObject);

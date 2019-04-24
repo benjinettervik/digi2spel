@@ -18,7 +18,7 @@ public class BeamTarget : Objective
     {
         base.PerformAction();
 
-        isCompleted = true;
+
 
         roomController.GetComponent<RoomController>().CheckObjectiveCompleted();
 
@@ -58,6 +58,8 @@ public class BeamTarget : Objective
 
                 yield return false;
             }
+
+            isCompleted = true;
         }
         else if (!on)
         {

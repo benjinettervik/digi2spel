@@ -8,6 +8,8 @@ public class PlayerPopUpText : MonoBehaviour
     #region DefaultTexts
     [TextArea]
     public string buttonDisabled;
+    [TextArea]
+    public string needKey;
     #endregion
     public Text textObject;
     public GameObject textPos;
@@ -60,6 +62,12 @@ public class PlayerPopUpText : MonoBehaviour
         string currentMessage = _text;
         if (currentMessage == buttonDisabled)
         {
+            textObject.rectTransform.sizeDelta = new Vector2(x_offset, y_offset);
+        }
+
+        if (currentMessage == needKey)
+        {
+            print("YEET");
             textObject.rectTransform.sizeDelta = new Vector2(x_offset, y_offset);
         }
     }

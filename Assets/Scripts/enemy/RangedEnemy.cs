@@ -39,6 +39,8 @@ public class RangedEnemy : Enemy
 
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        anim.speed = UnityEngine.Random.Range(0.8f, 1.1f);
     }
 
     public override void Update()

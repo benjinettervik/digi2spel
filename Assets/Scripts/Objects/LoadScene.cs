@@ -19,4 +19,9 @@ public class LoadScene : MonoBehaviour
             SceneManager.LoadScene(scene[1]);
         }
     }
+
+    public void LoadCustomScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }
