@@ -5783,6 +5783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives: []
   objectiveToToggle: {fileID: 447294824}
+  enemies: []
   needToKillEnemies: 1
   enemiesToKill:
   - {fileID: 2089664821}
@@ -15744,6 +15745,7 @@ MonoBehaviour:
   - {fileID: 812146577}
   - {fileID: 575206824}
   objectiveToToggle: {fileID: 674702033}
+  enemies: []
   needToKillEnemies: 0
   enemiesToKill: []
 --- !u!1001 &416803919
@@ -39749,6 +39751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives: []
   objectiveToToggle: {fileID: 404066610}
+  enemies: []
   needToKillEnemies: 1
   enemiesToKill:
   - {fileID: 920621662}
@@ -41807,6 +41810,7 @@ MonoBehaviour:
   objectives:
   - {fileID: 410661178}
   objectiveToToggle: {fileID: 386876684}
+  enemies: []
   needToKillEnemies: 0
   enemiesToKill: []
 --- !u!1 &1257810476
@@ -43552,6 +43556,7 @@ MonoBehaviour:
   - {fileID: 1720367169}
   - {fileID: 1812123119}
   objectiveToToggle: {fileID: 1299148962}
+  enemies: []
   needToKillEnemies: 0
   enemiesToKill: []
 --- !u!1 &1344675948 stripped
@@ -66948,12 +66953,12 @@ Prefab:
     - target: {fileID: 224332866071129298, guid: d8fdc8cca7e75624ca2658d1d9878e46,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224332866071129298, guid: d8fdc8cca7e75624ca2658d1d9878e46,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1545524061924694, guid: d8fdc8cca7e75624ca2658d1d9878e46, type: 2}
       propertyPath: m_IsActive
