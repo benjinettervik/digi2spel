@@ -30,7 +30,7 @@ public class PushObjective : MonoBehaviour
         {
             pushingObject = hit.collider.gameObject;
             //hit.transform.position += pushDir * Time.deltaTime;
-            hit.collider.GetComponent<Rigidbody>().MovePosition(hit.collider.transform.position + pushDir * Time.deltaTime * 2);
+            hit.collider.GetComponent<Rigidbody>().MovePosition(hit.collider.transform.position + pushDir * Time.deltaTime * 3);
         }
     }
 }

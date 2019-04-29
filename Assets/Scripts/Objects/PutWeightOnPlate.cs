@@ -15,7 +15,7 @@ public class PutWeightOnPlate : Objective
                 if (enable)
                 {
                     GetComponent<EditMaterial>().materials[1].color = Color.green;
-                    GetComponent<EditMaterial>().materials[1].SetColor("_EmissionColor", Color.green);
+                    GetComponent<EditMaterial>().materials[1].SetColor("_EmissionColor", Color.green * 2);
 
                     isCompleted = true;
                     ActivateObjects();

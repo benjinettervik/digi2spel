@@ -32,6 +32,8 @@ public class FadeIn : MonoBehaviour
                 fadeImage.color += new Color(0, 0, 0, 0.8f * Time.deltaTime);
                 yield return null;
             }
+
+            GetComponent<LoadScene>().LoadCustomScene("Menu_real");
         }
         yield return false;
     }

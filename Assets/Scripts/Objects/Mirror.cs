@@ -13,7 +13,7 @@ public class Mirror : Objective
     GameObject lastHitBeamTarget;
     bool hasHitBeamTarget;
 
-    private void Start()
+    public override void Start()
     {
         dontIgnoreLayers = 1 << LayerMask.NameToLayer("Default");
     }
@@ -37,7 +37,8 @@ public class Mirror : Objective
             if (hit.collider.tag == "Mirror" && hit.collider.gameObject != gameObject)
             {
                 Vector3 reflectedVector = Vector3.Reflect(_reflectedVector, hit.normal);
-                hit.collider.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, n, beamSource);
+                //print(hit.collider.transform.parent.name);
+                hit.collider.transform.parent.GetComponent<Mirror>().MirrorBeam(hit.point, reflectedVector, n, beamSource);
 
                 if (isFinalMirror)
                 {

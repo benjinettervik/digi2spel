@@ -13,12 +13,12 @@ public class Enemy : MonoBehaviour
     public float damage;
     public float sightRange;
     public float engagementDistance;
-    [HideInInspector]
-    public bool moveToDesigPos = true;
+
+    public bool dontMove = true;
     public bool isMoving;
     float timeSinceLastSpotted;
     [HideInInspector]
-    public bool playerIsSpotted;
+    public bool playerIsSpotted = false;
     [HideInInspector]
     public Vector3 playerLastSpotted = Vector3.zero;
     public Transform desigPos;
@@ -34,6 +34,16 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public GameObject healthBarObj;
     GameObject healthBar;
+
+    public virtual void Update()
+    {
+        SetHealthBarVisibility();
+    }
+
+    private void FixedUpdate()
+    {
+        SpotPlayer();
+    }
 
     public void TakeDamage(float damage)
     {
@@ -62,15 +72,16 @@ public class Enemy : MonoBehaviour
                 {
                     playerLastSpotted = hit.collider.transform.position;
                     playerIsSpotted = true;
-                    moveToDesigPos = false;
+                    dontMove = false;
 
                     //detta är för att förhindra att den hackar mycket när den ska kolla på spelaren, för av någon anledning träffar rayen spelaren typ varannan frame  
                     timeSinceLastSpotted = 0;
                 }
-                else if (timeSinceLastSpotted > 0.5)
+                else if (timeSinceLastSpotted > 3)
                 {
                     playerIsSpotted = false;
                 }
+
             }
         }
     }
@@ -87,7 +98,19 @@ public class Enemy : MonoBehaviour
         healthBar.GetComponent<HealthBar>().Setup(gameObject, Vector3.up * 2);
     }
 
+    public void SetHealthBarVisibility()
+    {
+        if (playerIsSpotted)
+        {
+            healthBar.SetActive(true);
+        }
+        else
+        {
+            //healthBar.SetActive(false);
+        }
+    }
 
+    //när den blir träffad
     IEnumerator RotateBack(bool die)
     {
         float timeSinceStart = 0;

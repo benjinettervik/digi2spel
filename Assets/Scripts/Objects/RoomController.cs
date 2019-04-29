@@ -12,6 +12,11 @@ public class RoomController : MonoBehaviour
     public GameObject objectiveToToggle;
     public List<GameObject> enemies;
 
+    [Header("Denna tickas om fienden MÅSTE dödas")]
+    public bool needToKillEnemies;
+    [Header("Alla fiender som måste dödas")]
+    public GameObject[] enemiesToKill;
+
     int completedObjectives;
     public void CheckObjectiveCompleted()
     {
@@ -24,7 +29,6 @@ public class RoomController : MonoBehaviour
             }
         }
 
-        print("doing shit");
         if (!roomCompleted)
         {
             objectiveToToggle.GetComponent<Objective>().PerformAction();
@@ -35,5 +39,23 @@ public class RoomController : MonoBehaviour
             objectiveToToggle.GetComponent<Objective>().PerformAction();
             roomCompleted = true;
         }
+    }
+
+    private void Update()
+    {
+        CheckEnemies();
+    }
+
+    void CheckEnemies()
+    {
+        foreach (GameObject enemy in enemiesToKill)
+        {
+            if (enemy != null)
+            {
+                return;
+            }
+        }
+
+        CheckObjectiveCompleted();
     }
 }

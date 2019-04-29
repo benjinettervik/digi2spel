@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxhealth;
-        editMaterial = GetComponent<EditMaterial>();
+        editMaterial = transform.Find("Knight").GetComponent<EditMaterial>();
     }
 
     public void TakeDamage(float dmg)
@@ -39,7 +39,16 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false);
+        GetComponent<movement>().enabled = false;
+        GetComponent<Attack>().enabled = false;
+
+        foreach (Material material in editMaterial.materials)
+        {
+            material.EnableKeyword("_EMISSION");
+            material.SetColor("_EmissionColor", Color.red * 2);
+        }
+
+        StartCoroutine(GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeIn>().FadeInImage(true));
     }
 
     IEnumerator TakeDamageEffects(bool die)
