@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4314964414651724, guid: c92db6af2a2e6bc478099ff898b6b8d0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.7680283
+      value: 3.043
       objectReference: {fileID: 0}
     - target: {fileID: 4314964414651724, guid: c92db6af2a2e6bc478099ff898b6b8d0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -151,11 +151,6 @@ Prefab:
     - target: {fileID: 4314964414651724, guid: c92db6af2a2e6bc478099ff898b6b8d0, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114893390767167466, guid: c92db6af2a2e6bc478099ff898b6b8d0,
-        type: 2}
-      propertyPath: invertDir
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92db6af2a2e6bc478099ff898b6b8d0, type: 2}
@@ -693,47 +688,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1416066371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1416066372}
-  - component: {fileID: 1416066373}
-  m_Layer: 0
-  m_Name: EnemyRaycast
-  m_TagString: PlayerEnemyTrigger
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1416066372
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1416066371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1552338951}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1416066373
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1416066371}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02180036, y: 0.03388699, z: 0.02404396}
-  m_Center: {x: 0.000046912945, y: 0.024452513, z: -0.0012680999}
 --- !u!1001 &1498091978
 Prefab:
   m_ObjectHideFlags: 0
@@ -776,11 +730,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a5a72165e2d9d94285c5ba2088a4360, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &1552338951 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4314964414651724, guid: c92db6af2a2e6bc478099ff898b6b8d0,
-    type: 2}
-  m_PrefabInternal: {fileID: 97148782}
 --- !u!1 &1563690569
 GameObject:
   m_ObjectHideFlags: 0

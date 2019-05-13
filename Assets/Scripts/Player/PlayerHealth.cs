@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         {
             //die
             print("dead");
+            GetComponent<Animator>().Play("Death");
             StartCoroutine(TakeDamageEffects(true));
         }
 
