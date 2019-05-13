@@ -66,11 +66,12 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) < sightRange)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, sightRange, 15))
+            if (Physics.Raycast(transform.position + Vector3.up, (player.transform.position - transform.position), out hit, sightRange, 15))
             {
-                if (hit.collider.tag == "Player")
+                if (hit.collider.tag == "PlayerEnemyTrigger")
                 {
-                    playerLastSpotted = hit.collider.transform.position;
+                    print("hitting");
+                    playerLastSpotted = hit.collider.transform.root.position;
                     playerIsSpotted = true;
                     dontMove = false;
 
@@ -83,6 +84,8 @@ public class Enemy : MonoBehaviour
                 }
 
             }
+
+            Debug.DrawLine(Vector3.up / 1.5f + transform.position, Vector3.up / 1.5f + transform.position + (player.transform.position - transform.position));
         }
     }
 
