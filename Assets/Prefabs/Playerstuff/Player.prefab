@@ -2215,6 +2215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 34
   sword: {fileID: 1904387219432286}
+  isAttacking: 0
+  hit1candamage: 0
+  hit2candamage: 0
+  canDoHit2: 0
 --- !u!114 &114744868592757568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2228,6 +2232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectMaterial: {fileID: 0}
   materials: []
+  isQuad: 0
 --- !u!114 &114893390767167466
 MonoBehaviour:
   m_ObjectHideFlags: 1
