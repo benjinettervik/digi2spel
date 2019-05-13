@@ -15,6 +15,7 @@ TagManager:
   - BeamTarget
   - FinalDoor
   - ObjectBlock
+  - PlayerEnemyTrigger
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Enemy
   - Prop
   - Pushable
-  - 
+  - IgnoreLight
   - 
   - 
   - 
